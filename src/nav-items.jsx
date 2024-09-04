@@ -1,4 +1,4 @@
-import { HomeIcon, TranslateIcon } from "lucide-react";
+import { HomeIcon, Languages } from "lucide-react";
 import Index from "./pages/Index.jsx";
 import Translate from "./pages/Translate.jsx";
 
@@ -15,7 +15,7 @@ export const navItems = [
   {
     title: "Translate",
     to: "/translate",
-    icon: <TranslateIcon className="h-4 w-4" />,
+    icon: <Languages className="h-4 w-4" />,
     page: <Translate />,
   },
 ];
