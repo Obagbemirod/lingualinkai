@@ -1,14 +1,50 @@
 import React from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Globe, BookOpen, Zap, Users } from 'lucide-react';
+import { Globe, BookOpen, Zap, Users, ChevronDown } from 'lucide-react';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 const Index = () => {
+  const services = ["Education", "Technology", "Agriculture", "Health", "Commerce"];
+  const languages = ["Swahili", "Yoruba", "Amharic", "Zulu", "Hausa", "Igbo", "Xhosa", "Afrikaans", "Twi", "Somali"];
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-100 to-white">
-      <header className="container mx-auto py-8">
-        <h1 className="text-4xl font-bold text-center text-blue-600">LinguaLink AI</h1>
-        <p className="text-xl text-center text-gray-600 mt-2">Breaking Down Language Barriers in Education</p>
+      <header className="container mx-auto py-4">
+        <div className="flex justify-between items-center">
+          <h1 className="text-3xl font-bold text-blue-600">LinguaLink AI</h1>
+          <nav className="flex items-center space-x-4">
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="outline">Services <ChevronDown className="ml-2 h-4 w-4" /></Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent>
+                {services.map((service, index) => (
+                  <DropdownMenuItem key={index}>{service}</DropdownMenuItem>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="outline">Languages <ChevronDown className="ml-2 h-4 w-4" /></Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent>
+                {languages.map((language, index) => (
+                  <DropdownMenuItem key={index}>{language}</DropdownMenuItem>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
+            <Button variant="ghost">About Us</Button>
+            <Button variant="ghost">Partner with Us</Button>
+            <Button variant="ghost">Support</Button>
+          </nav>
+        </div>
+        <p className="text-xl text-center text-gray-600 mt-4">Breaking Down Language Barriers in Education</p>
       </header>
 
       <main className="container mx-auto px-4">
