@@ -67,7 +67,9 @@ const Index = () => {
             in key sectors like technology, agriculture, health, and commerce.
           </p>
           <Link to="/translate">
-            <Button className="mt-6 bg-blue-600 hover:bg-blue-700">Translate Now</Button>
+            <Button className="mt-8 bg-blue-600 hover:bg-blue-700 text-white text-xl font-bold py-4 px-8 rounded-lg transition-all duration-300 transform hover:scale-105">
+              TRANSLATE NOW
+            </Button>
           </Link>
         </section>
 
