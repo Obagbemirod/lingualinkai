@@ -2,6 +2,7 @@ import React from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Globe, BookOpen, Zap, Users, ChevronDown } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -12,6 +13,7 @@ import {
 const Index = () => {
   const services = ["Education", "Technology", "Agriculture", "Health", "Commerce"];
   const languages = ["Swahili", "Yoruba", "Amharic", "Zulu", "Hausa", "Igbo", "Xhosa", "Afrikaans", "Twi", "Somali"];
+  const integrations = ["Telegram", "WhatsApp", "LMS"];
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-100 to-white">
@@ -41,7 +43,16 @@ const Index = () => {
             </DropdownMenu>
             <Button variant="ghost">About Us</Button>
             <Button variant="ghost">Partner with Us</Button>
-            <Button variant="ghost">Support</Button>
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="ghost">Integrate <ChevronDown className="ml-2 h-4 w-4" /></Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent>
+                {integrations.map((integration, index) => (
+                  <DropdownMenuItem key={index}>{integration}</DropdownMenuItem>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
           </nav>
         </div>
         <p className="text-xl text-center text-gray-600 mt-4">Breaking Down Language Barriers in Education</p>
@@ -55,7 +66,9 @@ const Index = () => {
             empowering marginalized populations in emerging markets to access knowledge and quality education
             in key sectors like technology, agriculture, health, and commerce.
           </p>
-          <Button className="mt-6 bg-blue-600 hover:bg-blue-700">Learn More</Button>
+          <Link to="/translate">
+            <Button className="mt-6 bg-blue-600 hover:bg-blue-700">Translate Now</Button>
+          </Link>
         </section>
 
         <section className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
