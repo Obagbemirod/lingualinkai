@@ -46,6 +46,7 @@ const Index = () => {
         <div className="flex justify-between items-center">
           <h1 className="text-4xl font-bold text-white">LinguaLink AI</h1>
           <nav className="flex items-center space-x-4">
+            <Button variant="ghost" className="text-white hover:bg-[#003366] transition-all duration-300">About Us</Button>
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button variant="outline" className="bg-white text-[#002244] hover:bg-gray-200 transition-all duration-300">Services <ChevronDown className="ml-2 h-4 w-4" /></Button>
@@ -66,11 +67,9 @@ const Index = () => {
                 ))}
               </DropdownMenuContent>
             </DropdownMenu>
-            <Button variant="ghost" className="text-white hover:bg-[#003366] transition-all duration-300">About Us</Button>
-            <Button variant="ghost" className="text-white hover:bg-[#003366] transition-all duration-300">Partner with Us</Button>
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button variant="ghost" className="text-white hover:bg-[#003366] transition-all duration-300">Integrate <ChevronDown className="ml-2 h-4 w-4" /></Button>
+                <Button variant="outline" className="bg-white text-[#002244] hover:bg-gray-200 transition-all duration-300">Integrate <ChevronDown className="ml-2 h-4 w-4" /></Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent>
                 <DropdownMenuItem><Link to="/telegram">Telegram</Link></DropdownMenuItem>
@@ -78,6 +77,7 @@ const Index = () => {
                 <DropdownMenuItem><Link to="/lms">LMS</Link></DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
+            <Button variant="ghost" className="text-white hover:bg-[#003366] transition-all duration-300">Partner with Us</Button>
           </nav>
         </div>
         <p className="text-2xl text-center text-white mt-6">Breaking Down Language Barriers in Education</p>
@@ -97,7 +97,7 @@ const Index = () => {
             in key sectors like technology, agriculture, health, and commerce.
           </p>
           <Link to="/translate">
-            <Button className="mt-8 bg-white text-[#002244] text-2xl font-extrabold py-6 px-12 rounded-lg transition-all duration-300 transform hover:scale-105 hover:bg-gray-200 shadow-lg">
+            <Button className="mt-8 bg-[#FF6B00] text-white text-2xl font-extrabold py-6 px-12 rounded-lg transition-all duration-300 transform hover:scale-105 hover:bg-[#FF8C00] shadow-lg">
               TRANSLATE NOW
             </Button>
           </Link>
