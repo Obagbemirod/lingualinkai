@@ -11,6 +11,12 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { NavBar } from '../components/NavBar';
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 const Index = () => {
   return (
@@ -45,35 +51,98 @@ const Index = () => {
         <section className="mb-16">
           <h3 className="text-3xl font-bold mb-8 text-white text-center">Our Impact Across Sectors</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {['Education', 'Agriculture', 'Healthcare', 'Commerce'].map((sector, index) => (
-              <Card key={index} className="bg-[#003366] text-white">
-                <CardHeader>
-                  <CardTitle className="text-xl">{sector}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p>Transforming {sector.toLowerCase()} through accessible, translated content.</p>
-                </CardContent>
-              </Card>
-            ))}
+            <TooltipProvider>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <Card className="bg-[#003366] text-white cursor-pointer">
+                    <CardHeader>
+                      <CardTitle className="text-xl">Education & Skills Development</CardTitle>
+                    </CardHeader>
+                  </Card>
+                </TooltipTrigger>
+                <TooltipContent>
+                  <p className="max-w-xs">Empowering learners with access to quality education in their native languages, fostering skill development and knowledge acquisition.</p>
+                </TooltipContent>
+              </Tooltip>
+            </TooltipProvider>
+
+            <TooltipProvider>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <Card className="bg-[#003366] text-white cursor-pointer">
+                    <CardHeader>
+                      <CardTitle className="text-xl">Agriculture</CardTitle>
+                    </CardHeader>
+                  </Card>
+                </TooltipTrigger>
+                <TooltipContent>
+                  <p className="max-w-xs">Enabling farmers producing 80%+ of food in emerging markets to access market information & education on sustainable practices, boosting yield and food security.</p>
+                </TooltipContent>
+              </Tooltip>
+            </TooltipProvider>
+
+            <TooltipProvider>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <Card className="bg-[#003366] text-white cursor-pointer">
+                    <CardHeader>
+                      <CardTitle className="text-xl">Healthcare</CardTitle>
+                    </CardHeader>
+                  </Card>
+                </TooltipTrigger>
+                <TooltipContent>
+                  <p className="max-w-xs">Upskilling frontline health workers like Birth Attendants, helping reduce mortality rates during childbirths through accessible training.</p>
+                </TooltipContent>
+              </Tooltip>
+            </TooltipProvider>
+
+            <TooltipProvider>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <Card className="bg-[#003366] text-white cursor-pointer">
+                    <CardHeader>
+                      <CardTitle className="text-xl">Business & Commerce</CardTitle>
+                    </CardHeader>
+                  </Card>
+                </TooltipTrigger>
+                <TooltipContent>
+                  <p className="max-w-xs">Empowering SMEs and informal sector players with premium business education in local languages, reducing business failure rates.</p>
+                </TooltipContent>
+              </Tooltip>
+            </TooltipProvider>
           </div>
         </section>
 
         <section className="mb-16">
-          <h3 className="text-3xl font-bold mb-8 text-white text-center">Translation Methods</h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              { title: 'Web Translation', icon: <Laptop className="h-8 w-8 mb-4" /> },
-              { title: 'Mobile App', icon: <Smartphone className="h-8 w-8 mb-4" /> },
-              { title: 'Chat Integration', icon: <MessageCircle className="h-8 w-8 mb-4" /> }
-            ].map((method, index) => (
-              <Card key={index} className="bg-[#003366] text-white text-center">
-                <CardContent className="pt-6">
-                  {method.icon}
-                  <h4 className="text-xl font-semibold mb-2">{method.title}</h4>
-                  <p>Seamless translation across platforms</p>
-                </CardContent>
-              </Card>
-            ))}
+          <h3 className="text-3xl font-bold mb-8 text-white text-center">Why choose LinguaLink AI</h3>
+          <p className="text-xl text-center text-gray-300 mb-8">
+            We enable users to access translated contents in their native languages and most familiar learning environments.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <Link to="/translate">
+              <Button className="w-full h-full flex flex-col items-center justify-center bg-[#003366] hover:bg-[#004080] text-white p-6">
+                <Laptop className="h-12 w-12 mb-4" />
+                <span>Translate via web</span>
+              </Button>
+            </Link>
+            <Link to="/translate">
+              <Button className="w-full h-full flex flex-col items-center justify-center bg-[#003366] hover:bg-[#004080] text-white p-6">
+                <Smartphone className="h-12 w-12 mb-4" />
+                <span>Translate on mobile</span>
+              </Button>
+            </Link>
+            <Link to="/whatsapp">
+              <Button className="w-full h-full flex flex-col items-center justify-center bg-[#003366] hover:bg-[#004080] text-white p-6">
+                <MessageCircle className="h-12 w-12 mb-4" />
+                <span>Translate on WhatsApp</span>
+              </Button>
+            </Link>
+            <Link to="/telegram">
+              <Button className="w-full h-full flex flex-col items-center justify-center bg-[#003366] hover:bg-[#004080] text-white p-6">
+                <Send className="h-12 w-12 mb-4" />
+                <span>Translate on Telegram</span>
+              </Button>
+            </Link>
           </div>
         </section>
       </main>
