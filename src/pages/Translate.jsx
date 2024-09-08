@@ -14,7 +14,10 @@ const Translate = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-purple-100 via-blue-100 to-green-100 p-8">
       <header className="container mx-auto mb-8 flex justify-between items-center">
-        <h1 className="text-3xl font-bold text-purple-600">LinguaLink AI Translator</h1>
+        <div className="flex items-center">
+          <img src="/logo.png" alt="LinguaLink AI Logo" className="h-12 w-12 mr-4" />
+          <h1 className="text-3xl font-bold text-purple-600">LinguaLink AI Translator</h1>
+        </div>
         <nav>
           <Button variant="outline" className="mr-4">Home</Button>
           <Button variant="outline">About</Button>
