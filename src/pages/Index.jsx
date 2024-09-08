@@ -10,10 +10,10 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { NavBar } from './components/NavBar';
-import { FeatureCards } from './components/FeatureCards';
-import { ImpactSectors } from './components/ImpactSectors';
-import { TranslationMethods } from './components/TranslationMethods';
+import { NavBar } from '../components/NavBar';
+import { FeatureCards } from '../components/FeatureCards';
+import { ImpactSectors } from '../components/ImpactSectors';
+import { TranslationMethods } from '../components/TranslationMethods';
 
 const Index = () => {
   return (
