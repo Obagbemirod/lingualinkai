@@ -10,10 +10,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { NavBar } from './components/NavBar';
-import { FeatureCards } from './components/FeatureCards';
-import { ImpactSectors } from './components/ImpactSectors';
-import { TranslationMethods } from './components/TranslationMethods';
+import { NavBar } from '../components/NavBar';
 
 const Index = () => {
   return (
@@ -45,9 +42,40 @@ const Index = () => {
           </Link>
         </motion.section>
 
-        <FeatureCards />
-        <ImpactSectors />
-        <TranslationMethods />
+        <section className="mb-16">
+          <h3 className="text-3xl font-bold mb-8 text-white text-center">Our Impact Across Sectors</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {['Education', 'Agriculture', 'Healthcare', 'Commerce'].map((sector, index) => (
+              <Card key={index} className="bg-[#003366] text-white">
+                <CardHeader>
+                  <CardTitle className="text-xl">{sector}</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p>Transforming {sector.toLowerCase()} through accessible, translated content.</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </section>
+
+        <section className="mb-16">
+          <h3 className="text-3xl font-bold mb-8 text-white text-center">Translation Methods</h3>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              { title: 'Web Translation', icon: <Laptop className="h-8 w-8 mb-4" /> },
+              { title: 'Mobile App', icon: <Smartphone className="h-8 w-8 mb-4" /> },
+              { title: 'Chat Integration', icon: <MessageCircle className="h-8 w-8 mb-4" /> }
+            ].map((method, index) => (
+              <Card key={index} className="bg-[#003366] text-white text-center">
+                <CardContent className="pt-6">
+                  {method.icon}
+                  <h4 className="text-xl font-semibold mb-2">{method.title}</h4>
+                  <p>Seamless translation across platforms</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </section>
       </main>
 
       <footer className="bg-[#001833] text-white py-8">
