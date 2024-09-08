@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Upload, FileType, Link } from 'lucide-react';
+import { Link as RouterLink } from 'react-router-dom';
 
 const Translate = () => {
   const [sourceLanguage, setSourceLanguage] = useState('');
@@ -16,8 +17,12 @@ const Translate = () => {
       <header className="container mx-auto mb-8 flex justify-between items-center">
         <h1 className="text-3xl font-bold text-white">LinguaLink AI Translator</h1>
         <nav>
-          <Button variant="outline" className="mr-4 text-white border-white hover:bg-[#004080]">Home</Button>
-          <Button variant="outline" className="text-white border-white hover:bg-[#004080]">About</Button>
+          <RouterLink to="/">
+            <Button variant="outline" className="mr-4 text-black bg-white border-white hover:bg-[#004080] hover:text-white">Home</Button>
+          </RouterLink>
+          <RouterLink to="/about">
+            <Button variant="outline" className="text-black bg-white border-white hover:bg-[#004080] hover:text-white">About</Button>
+          </RouterLink>
         </nav>
       </header>
 
