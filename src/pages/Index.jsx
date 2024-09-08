@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Globe, BookOpen, Zap, Users, ChevronDown } from 'lucide-react';
+import { Globe, BookOpen, Zap, Users, ChevronDown, Laptop, Smartphone, MessageCircle, Send } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { motion } from "framer-motion";
 import {
@@ -33,6 +33,13 @@ const Index = () => {
       title: "Health",
       content: "Upskilling frontline health workers like Birth Attendants, helping to reduce mortality rates during childbirths."
     }
+  ];
+
+  const translationMethods = [
+    { icon: <Laptop className="h-8 w-8" />, text: "Translate via web", link: "/translate" },
+    { icon: <Smartphone className="h-8 w-8" />, text: "Translate on mobile", link: "/translate" },
+    { icon: <MessageCircle className="h-8 w-8" />, text: "Translate on WhatsApp", link: "/whatsapp" },
+    { icon: <Send className="h-8 w-8" />, text: "Translate on Telegram", link: "/telegram" },
   ];
 
   return (
@@ -151,8 +158,8 @@ const Index = () => {
               >
                 <Card className="bg-[#003366] shadow-xl hover:shadow-2xl transition-all duration-300 h-full">
                   <CardHeader>
-                    <CardTitle className="text-2xl font-bold text-white">
-                      {sector.title}
+                    <CardTitle className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-red-500 flex items-center">
+                      <BookOpen className="mr-2 text-green-400" /> {sector.title}
                     </CardTitle>
                   </CardHeader>
                   <CardContent className="relative overflow-hidden h-40">
@@ -173,12 +180,21 @@ const Index = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl font-bold mb-6 text-white">Why Choose LinguaLink AI?</h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Our platform seamlessly integrates with multiple platforms (web, mobile, WhatsApp, Telegram),
-            enabling users to access translated educational content in their native languages and most
-            familiar learning environments. We're not just translating content; we're bridging critical
-            knowledge gaps and driving inclusive growth.
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
+            We enable users to access translated contents in their native languages and most familiar learning environments.
           </p>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {translationMethods.map((method, index) => (
+              <Link key={index} to={method.link}>
+                <Button
+                  className="w-full h-24 bg-[#003366] hover:bg-[#004080] text-white flex flex-col items-center justify-center transition-all duration-300"
+                >
+                  {method.icon}
+                  <span className="mt-2 text-sm">{method.text}</span>
+                </Button>
+              </Link>
+            ))}
+          </div>
         </motion.section>
       </main>
 
