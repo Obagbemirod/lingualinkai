@@ -1,15 +1,9 @@
 import React from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Globe, BookOpen, Zap, Users, ChevronDown, Laptop, Smartphone, MessageCircle, Send } from 'lucide-react';
+import { Globe, BookOpen, Zap, Users, Laptop, Smartphone, MessageCircle, Send } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { motion } from "framer-motion";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
 import { NavBar } from '../components/NavBar';
 import {
   Tooltip,
