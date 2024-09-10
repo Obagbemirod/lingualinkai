@@ -5,7 +5,6 @@ import { Globe, BookOpen, Zap, Users, Laptop, Smartphone, MessageCircle, Send } 
 import { Link } from 'react-router-dom';
 import { motion } from "framer-motion";
 import { NavBar } from '../components/NavBar';
-import TranslateDoodle from '../components/TranslateDoodle';
 import {
   Tooltip,
   TooltipContent,
@@ -28,7 +27,7 @@ const Index = () => {
           initial={{ y: 50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.2 }}
-          className="mb-16 text-center relative"
+          className="mb-16 text-center"
         >
           <h2 className="text-4xl font-bold mb-6 text-white">Empowering Millions Through Accessible Education</h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
@@ -36,16 +35,11 @@ const Index = () => {
             empowering marginalized populations in emerging markets to access knowledge and quality education
             in key sectors like technology, agriculture, health, and commerce.
           </p>
-          <div className="relative inline-block">
-            <Link to="/translate">
-              <Button className="mt-8 bg-[#FF6B00] text-white text-2xl font-extrabold py-6 px-12 rounded-lg transition-all duration-300 transform hover:scale-105 hover:bg-[#FF8C00] shadow-lg">
-                TRANSLATE NOW
-              </Button>
-            </Link>
-            <div className="absolute -top-16 -right-24">
-              <TranslateDoodle />
-            </div>
-          </div>
+          <Link to="/translate">
+            <Button className="mt-8 bg-[#FF6B00] text-white text-2xl font-extrabold py-6 px-12 rounded-lg transition-all duration-300 transform hover:scale-105 hover:bg-[#FF8C00] shadow-lg animate-pulse">
+              TRANSLATE NOW
+            </Button>
+          </Link>
         </motion.section>
 
         <section className="mb-16">
