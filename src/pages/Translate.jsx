@@ -1,18 +1,24 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Upload, FileType, Link, Mic, Volume2 } from 'lucide-react';
+import { Upload, Link, Mic, Volume2 } from 'lucide-react';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
-import { FaFilePdf, FaFileWord, FaFilePowerpoint, FaFileExcel, FaYoutube } from 'react-icons/fa';
+import { FaFilePdf, FaFileWord, FaFilePowerpoint, FaFileExcel, FaYoutube, FaFileVideo, FaFileAudio } from 'react-icons/fa';
 import { SiUdemy, SiCoursera, SiLinkedin, SiEdx } from 'react-icons/si';
+import { motion } from 'framer-motion';
 
 const Translate = () => {
   const [sourceLanguage, setSourceLanguage] = useState('');
   const [targetLanguage, setTargetLanguage] = useState('');
+  const fileInputRef = useRef(null);
   const languages = ["English", "French", "Spanish", "German", "Italian", "Portuguese", "Russian", "Chinese", "Japanese", "Korean", "Arabic", "Hindi", "Bengali", "Urdu", "Swahili", "Yoruba", "Amharic", "Zulu", "Hausa", "Igbo", "Xhosa", "Afrikaans", "Twi", "Somali", "Oromo", "Fulani", "Akan", "Wolof", "Lingala", "Kinyarwanda"];
+
+  const handleFileUpload = (fileType) => {
+    fileInputRef.current.click();
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#003366] via-[#004080] to-[#005599] p-8">
@@ -90,19 +96,22 @@ const Translate = () => {
           <Card className="bg-[#002244] bg-opacity-80 shadow-lg">
             <CardHeader>
               <CardTitle className="flex items-center text-xl text-white">
-                <FileType className="mr-2" /> Translate Files
+                <Upload className="mr-2" /> Translate Files
               </CardTitle>
             </CardHeader>
             <CardContent>
               <p className="mb-4 text-gray-300">Upload files in various formats:</p>
               <div className="flex flex-wrap justify-center gap-4 mb-4">
-                <FaFilePdf className="text-3xl text-red-500" />
-                <FaFileWord className="text-3xl text-blue-500" />
-                <FaFilePowerpoint className="text-3xl text-orange-500" />
-                <FaFileExcel className="text-3xl text-green-500" />
-                <FileType className="text-3xl text-white" /> {/* Representing .mp4 */}
-                <FileType className="text-3xl text-white" /> {/* Representing .mp3 */}
-                <FileType className="text-3xl text-white" /> {/* Representing .avi */}
+                <input type="file" ref={fileInputRef} style={{ display: 'none' }} multiple />
+                {[FaFilePdf, FaFileWord, FaFilePowerpoint, FaFileExcel, FaFileVideo, FaFileAudio].map((Icon, index) => (
+                  <motion.div
+                    key={index}
+                    whileHover={{ scale: 1.2 }}
+                    onClick={() => handleFileUpload(Icon.name)}
+                  >
+                    <Icon className="text-3xl text-white cursor-pointer" />
+                  </motion.div>
+                ))}
               </div>
               <Button className="w-full flex items-center justify-center bg-[#003366] hover:bg-[#004080] text-white">
                 <Upload className="mr-2" /> Upload File
@@ -119,11 +128,14 @@ const Translate = () => {
             <CardContent>
               <Input placeholder="Enter URL to translate" className="mb-4 bg-[#003366] text-white placeholder-gray-300" />
               <div className="flex justify-center gap-4 mb-4">
-                <FaYoutube className="text-3xl text-red-500" />
-                <SiUdemy className="text-3xl text-purple-500" />
-                <SiCoursera className="text-3xl text-blue-500" />
-                <SiLinkedin className="text-3xl text-blue-700" />
-                <SiEdx className="text-3xl text-red-700" />
+                {[FaYoutube, SiUdemy, SiCoursera, SiLinkedin, SiEdx].map((Icon, index) => (
+                  <motion.div
+                    key={index}
+                    whileHover={{ scale: 1.2 }}
+                  >
+                    <Icon className="text-3xl text-white cursor-pointer" />
+                  </motion.div>
+                ))}
               </div>
               <Button className="w-full bg-[#003366] hover:bg-[#004080] text-white">Translate URL</Button>
             </CardContent>

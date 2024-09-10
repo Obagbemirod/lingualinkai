@@ -52,7 +52,7 @@ const Index = () => {
           </p>
           <Button 
             onClick={handleTranslateClick}
-            className="mt-8 bg-[#FF6B00] text-white text-2xl font-extrabold py-6 px-12 rounded-lg transition-all duration-300 transform hover:scale-105 hover:bg-[#FF8C00] shadow-lg animate-slow-pulse"
+            className="mt-8 bg-[#FF6B00] text-white text-2xl font-extrabold py-6 px-12 rounded-lg transition-all duration-300 transform hover:scale-105 hover:bg-[#FF8C00] shadow-lg animate-[slow-pulse_3s_ease-in-out_infinite]"
           >
             TRANSLATE NOW
           </Button>
