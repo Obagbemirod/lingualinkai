@@ -2,7 +2,7 @@ import React from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Globe, BookOpen, Zap, Users, Laptop, Smartphone, MessageCircle, Send } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { motion } from "framer-motion";
 import { NavBar } from '../components/NavBar';
 import {
@@ -13,6 +13,12 @@ import {
 } from "@/components/ui/tooltip";
 
 const Index = () => {
+  const navigate = useNavigate();
+
+  const handleTranslateClick = () => {
+    navigate('/signup-login');
+  };
+
   return (
     <motion.div 
       initial={{ opacity: 0 }}
@@ -20,7 +26,16 @@ const Index = () => {
       exit={{ opacity: 0 }}
       className="min-h-screen bg-[#002244]"
     >
-      <NavBar />
+      <header className="container mx-auto py-6 flex justify-between items-center">
+        <h1 className="text-4xl font-bold text-white">LinguaLink AI</h1>
+        <nav className="flex items-center space-x-4">
+          <Button variant="ghost" className="text-white hover:bg-[#003366] transition-all duration-300">About Us</Button>
+          <Button variant="ghost" className="text-white hover:bg-[#003366] transition-all duration-300">Partner with Us</Button>
+          <Link to="/signup-login">
+            <Button className="bg-[#FF6B00] text-white hover:bg-[#FF8C00] transition-all duration-300">Signup/Login</Button>
+          </Link>
+        </nav>
+      </header>
 
       <main className="container mx-auto px-4">
         <motion.section 
@@ -35,11 +50,12 @@ const Index = () => {
             empowering marginalized populations in emerging markets to access knowledge and quality education
             in key sectors like technology, agriculture, health, and commerce.
           </p>
-          <Link to="/translate">
-            <Button className="mt-8 bg-[#FF6B00] text-white text-2xl font-extrabold py-6 px-12 rounded-lg transition-all duration-300 transform hover:scale-105 hover:bg-[#FF8C00] shadow-lg animate-slow-pulse">
-              TRANSLATE NOW
-            </Button>
-          </Link>
+          <Button 
+            onClick={handleTranslateClick}
+            className="mt-8 bg-[#FF6B00] text-white text-2xl font-extrabold py-6 px-12 rounded-lg transition-all duration-300 transform hover:scale-105 hover:bg-[#FF8C00] shadow-lg animate-slow-pulse"
+          >
+            TRANSLATE NOW
+          </Button>
         </motion.section>
 
         <section className="mb-16">
@@ -113,27 +129,27 @@ const Index = () => {
             We enable users to access translated contents in their native languages and most familiar learning environments.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <Link to="/translate">
-              <Button className="w-full h-full flex flex-col items-center justify-center bg-[#003366] hover:bg-[#004080] text-white p-6">
-                <Laptop className="h-12 w-12 mb-4" />
+            <Link to="/signup-login">
+              <Button className="w-full h-full flex flex-col items-center justify-center bg-[#003366] hover:bg-[#004080] text-white p-6 group">
+                <Laptop className="h-12 w-12 mb-4 group-hover:text-[#FF6B00] transition-colors duration-300" />
                 <span>Translate via web</span>
               </Button>
             </Link>
-            <Link to="/translate">
-              <Button className="w-full h-full flex flex-col items-center justify-center bg-[#003366] hover:bg-[#004080] text-white p-6">
-                <Smartphone className="h-12 w-12 mb-4" />
+            <Link to="/signup-login">
+              <Button className="w-full h-full flex flex-col items-center justify-center bg-[#003366] hover:bg-[#004080] text-white p-6 group">
+                <Smartphone className="h-12 w-12 mb-4 group-hover:text-[#FF6B00] transition-colors duration-300" />
                 <span>Translate on mobile</span>
               </Button>
             </Link>
-            <Link to="/whatsapp">
-              <Button className="w-full h-full flex flex-col items-center justify-center bg-[#003366] hover:bg-[#004080] text-white p-6">
-                <MessageCircle className="h-12 w-12 mb-4" />
+            <Link to="/signup-login">
+              <Button className="w-full h-full flex flex-col items-center justify-center bg-[#003366] hover:bg-[#004080] text-white p-6 group">
+                <MessageCircle className="h-12 w-12 mb-4 group-hover:text-[#FF6B00] transition-colors duration-300" />
                 <span>Translate on WhatsApp</span>
               </Button>
             </Link>
-            <Link to="/telegram">
-              <Button className="w-full h-full flex flex-col items-center justify-center bg-[#003366] hover:bg-[#004080] text-white p-6">
-                <Send className="h-12 w-12 mb-4" />
+            <Link to="/signup-login">
+              <Button className="w-full h-full flex flex-col items-center justify-center bg-[#003366] hover:bg-[#004080] text-white p-6 group">
+                <Send className="h-12 w-12 mb-4 group-hover:text-[#FF6B00] transition-colors duration-300" />
                 <span>Translate on Telegram</span>
               </Button>
             </Link>

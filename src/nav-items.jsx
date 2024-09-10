@@ -4,6 +4,7 @@ import Translate from "./pages/Translate.jsx";
 import Telegram from "./pages/Telegram.jsx";
 import WhatsApp from "./pages/WhatsApp.jsx";
 import LMS from "./pages/LMS.jsx";
+import SignupLogin from "./pages/SignupLogin.jsx";
 
 /**
  * Central place for defining the navigation items. Used for navigation components and routing.
@@ -38,5 +39,11 @@ export const navItems = [
     to: "/lms",
     icon: <BookOpen className="h-4 w-4" />,
     page: <LMS />,
+  },
+  {
+    title: "Signup/Login",
+    to: "/signup-login",
+    icon: <HomeIcon className="h-4 w-4" />,
+    page: <SignupLogin />,
   },
 ];
