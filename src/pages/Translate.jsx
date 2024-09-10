@@ -127,7 +127,7 @@ const Translate = () => {
                 ))}
               </div>
               <Button className="w-full flex items-center justify-center bg-[#003366] hover:bg-[#004080] text-white">
-                <Upload className="mr-2" /> Upload File
+                <Upload className="mr-2" /> Translate File
               </Button>
             </CardContent>
           </Card>

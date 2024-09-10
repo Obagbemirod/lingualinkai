@@ -4,7 +4,13 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Globe, BookOpen, Zap, Users, Laptop, Smartphone, MessageCircle, Send, ChevronDown, ChevronUp } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 import { motion } from "framer-motion";
-import { NavBar } from '../components/NavBar';
+import Logo from '../components/Logo';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 const Index = () => {
   const navigate = useNavigate();
@@ -45,10 +51,41 @@ const Index = () => {
       className="min-h-screen bg-[#002244]"
     >
       <header className="container mx-auto py-6 flex justify-between items-center">
-        <h1 className="text-4xl font-bold text-white">LinguaLink AI</h1>
+        <Logo />
         <nav className="flex items-center space-x-4">
-          <Button variant="ghost" className="text-white hover:bg-[#003366] transition-all duration-300">About Us</Button>
-          <Button variant="ghost" className="text-white hover:bg-[#003366] transition-all duration-300">Partner with Us</Button>
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant="ghost" className="text-white hover:bg-[#003366] transition-all duration-300">About Us</Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent>
+              <DropdownMenuItem><Link to="/services">Services</Link></DropdownMenuItem>
+              <DropdownMenuItem><Link to="/where-we-work">Where we Work</Link></DropdownMenuItem>
+              <DropdownMenuItem><Link to="/contact">Contact</Link></DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant="ghost" className="text-white hover:bg-[#003366] transition-all duration-300">Languages</Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent>
+              {["Arabic", "French", "Swahili", "Hausa", "Igbo", "Yoruba", "Berber", "Oromo", "Portuguese", "Amharic"].map((lang) => (
+                <DropdownMenuItem key={lang}><Link to={`/language/${lang.toLowerCase()}`}>{lang}</Link></DropdownMenuItem>
+              ))}
+            </DropdownMenuContent>
+          </DropdownMenu>
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant="ghost" className="text-white hover:bg-[#003366] transition-all duration-300">Integrate</Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent>
+              <DropdownMenuItem><Link to="/telegram">Telegram</Link></DropdownMenuItem>
+              <DropdownMenuItem><Link to="/whatsapp">WhatsApp</Link></DropdownMenuItem>
+              <DropdownMenuItem><Link to="/lms">LMS</Link></DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+          <Button variant="ghost" className="text-white hover:bg-[#003366] transition-all duration-300">
+            <Link to="/partner">Partner with Us</Link>
+          </Button>
           <Link to="/signup-login">
             <Button className="bg-[#FF6B00] text-white hover:bg-[#FF8C00] transition-all duration-300">Signup/Login</Button>
           </Link>
@@ -70,7 +107,7 @@ const Index = () => {
           </p>
           <Button 
             onClick={handleTranslateClick}
-            className="mt-8 bg-[#FF6B00] text-white text-2xl font-extrabold py-6 px-12 rounded-lg transition-all duration-300 transform hover:scale-105 hover:bg-[#FF8C00] shadow-lg animate-[slow-pulse_5s_ease-in-out_infinite]"
+            className="mt-8 bg-[#FF6B00] text-white text-2xl font-extrabold py-6 px-12 rounded-lg transition-all duration-300 transform hover:scale-105 hover:bg-[#FF8C00] shadow-lg animate-[slow-pulse_8s_ease-in-out_infinite]"
           >
             TRANSLATE NOW
           </Button>
@@ -103,7 +140,7 @@ const Index = () => {
             We enable users to access translated contents in their native languages and most familiar learning environments.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <Link to="/signup-login">
+            <Link to="/translate">
               <motion.div whileHover={{ scale: 1.1 }} className="w-full h-full">
                 <Button className="w-full h-full flex flex-col items-center justify-center bg-[#003366] hover:bg-[#004080] text-white p-6 group">
                   <Laptop className="h-12 w-12 mb-4 group-hover:text-[#FF6B00] transition-colors duration-300" />
@@ -111,7 +148,7 @@ const Index = () => {
                 </Button>
               </motion.div>
             </Link>
-            <Link to="/signup-login">
+            <Link to="/translate">
               <motion.div whileHover={{ scale: 1.1 }} className="w-full h-full">
                 <Button className="w-full h-full flex flex-col items-center justify-center bg-[#003366] hover:bg-[#004080] text-white p-6 group">
                   <Smartphone className="h-12 w-12 mb-4 group-hover:text-[#FF6B00] transition-colors duration-300" />
@@ -119,7 +156,7 @@ const Index = () => {
                 </Button>
               </motion.div>
             </Link>
-            <Link to="/signup-login">
+            <Link to="/whatsapp">
               <motion.div whileHover={{ scale: 1.1 }} className="w-full h-full">
                 <Button className="w-full h-full flex flex-col items-center justify-center bg-[#003366] hover:bg-[#004080] text-white p-6 group">
                   <MessageCircle className="h-12 w-12 mb-4 group-hover:text-[#FF6B00] transition-colors duration-300" />
@@ -127,7 +164,7 @@ const Index = () => {
                 </Button>
               </motion.div>
             </Link>
-            <Link to="/signup-login">
+            <Link to="/telegram">
               <motion.div whileHover={{ scale: 1.1 }} className="w-full h-full">
                 <Button className="w-full h-full flex flex-col items-center justify-center bg-[#003366] hover:bg-[#004080] text-white p-6 group">
                   <Send className="h-12 w-12 mb-4 group-hover:text-[#FF6B00] transition-colors duration-300" />
