@@ -42,7 +42,7 @@ const Index = () => {
                 TRANSLATE NOW
               </Button>
             </Link>
-            <div className="absolute -top-16 -right-24">
+            <div className="absolute -top-24 -right-24 transform rotate-45">
               <TranslateDoodle />
             </div>
           </div>

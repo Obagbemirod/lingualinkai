@@ -14,22 +14,22 @@ const TranslateDoodle = () => {
       transition={{ duration: 0.5, repeat: Infinity, repeatType: "reverse" }}
     >
       <motion.path
-        d="M20 80 Q 50 20, 80 80"
+        d="M30 70 Q 40 60, 50 70 Q 60 80, 70 70 L 80 60 L 70 50 L 60 60 L 50 50 L 40 60 L 30 50 L 20 60 Z"
         stroke="#FF6B00"
         strokeWidth="4"
-        fill="none"
+        fill="#FF6B00"
         initial={{ pathLength: 0 }}
         animate={{ pathLength: 1 }}
         transition={{ duration: 2, repeat: Infinity }}
       />
       <motion.path
-        d="M70 85 L 80 80 L 75 70"
+        d="M50 50 L 60 40 L 70 50"
         stroke="#FF6B00"
         strokeWidth="4"
         fill="none"
         initial={{ pathLength: 0 }}
         animate={{ pathLength: 1 }}
-        transition={{ duration: 2, repeat: Infinity, delay: 1.5 }}
+        transition={{ duration: 2, repeat: Infinity, delay: 1 }}
       />
     </motion.svg>
   );
