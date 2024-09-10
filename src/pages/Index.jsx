@@ -1,23 +1,41 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Globe, BookOpen, Zap, Users, Laptop, Smartphone, MessageCircle, Send } from 'lucide-react';
+import { Globe, BookOpen, Zap, Users, Laptop, Smartphone, MessageCircle, Send, ChevronDown, ChevronUp } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 import { motion } from "framer-motion";
 import { NavBar } from '../components/NavBar';
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
 
 const Index = () => {
   const navigate = useNavigate();
+  const [expandedSector, setExpandedSector] = useState(null);
 
   const handleTranslateClick = () => {
     navigate('/signup-login');
   };
+
+  const toggleSector = (sector) => {
+    setExpandedSector(expandedSector === sector ? null : sector);
+  };
+
+  const sectors = [
+    {
+      title: "Education & Skills Development",
+      content: "Empowering learners with access to quality education in their native languages, fostering skill development and knowledge acquisition."
+    },
+    {
+      title: "Agriculture",
+      content: "Enabling farmers producing 80%+ of food in emerging markets to access market information & education on sustainable practices, boosting yield and food security."
+    },
+    {
+      title: "Healthcare",
+      content: "Upskilling frontline health workers like Birth Attendants, helping reduce mortality rates during childbirths through accessible training."
+    },
+    {
+      title: "Business & Commerce",
+      content: "Empowering SMEs and informal sector players with premium business education in local languages, reducing business failure rates."
+    }
+  ];
 
   return (
     <motion.div 
@@ -52,7 +70,7 @@ const Index = () => {
           </p>
           <Button 
             onClick={handleTranslateClick}
-            className="mt-8 bg-[#FF6B00] text-white text-2xl font-extrabold py-6 px-12 rounded-lg transition-all duration-300 transform hover:scale-105 hover:bg-[#FF8C00] shadow-lg animate-[slow-pulse_3s_ease-in-out_infinite]"
+            className="mt-8 bg-[#FF6B00] text-white text-2xl font-extrabold py-6 px-12 rounded-lg transition-all duration-300 transform hover:scale-105 hover:bg-[#FF8C00] shadow-lg animate-[slow-pulse_5s_ease-in-out_infinite]"
           >
             TRANSLATE NOW
           </Button>
@@ -61,65 +79,21 @@ const Index = () => {
         <section className="mb-16">
           <h3 className="text-3xl font-bold mb-8 text-white text-center">Our Impact Across Sectors</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <TooltipProvider>
-              <Tooltip>
-                <TooltipTrigger asChild>
-                  <Card className="bg-[#003366] text-white cursor-pointer">
-                    <CardHeader>
-                      <CardTitle className="text-xl">Education & Skills Development</CardTitle>
-                    </CardHeader>
-                  </Card>
-                </TooltipTrigger>
-                <TooltipContent>
-                  <p className="max-w-xs">Empowering learners with access to quality education in their native languages, fostering skill development and knowledge acquisition.</p>
-                </TooltipContent>
-              </Tooltip>
-            </TooltipProvider>
-
-            <TooltipProvider>
-              <Tooltip>
-                <TooltipTrigger asChild>
-                  <Card className="bg-[#003366] text-white cursor-pointer">
-                    <CardHeader>
-                      <CardTitle className="text-xl">Agriculture</CardTitle>
-                    </CardHeader>
-                  </Card>
-                </TooltipTrigger>
-                <TooltipContent>
-                  <p className="max-w-xs">Enabling farmers producing 80%+ of food in emerging markets to access market information & education on sustainable practices, boosting yield and food security.</p>
-                </TooltipContent>
-              </Tooltip>
-            </TooltipProvider>
-
-            <TooltipProvider>
-              <Tooltip>
-                <TooltipTrigger asChild>
-                  <Card className="bg-[#003366] text-white cursor-pointer">
-                    <CardHeader>
-                      <CardTitle className="text-xl">Healthcare</CardTitle>
-                    </CardHeader>
-                  </Card>
-                </TooltipTrigger>
-                <TooltipContent>
-                  <p className="max-w-xs">Upskilling frontline health workers like Birth Attendants, helping reduce mortality rates during childbirths through accessible training.</p>
-                </TooltipContent>
-              </Tooltip>
-            </TooltipProvider>
-
-            <TooltipProvider>
-              <Tooltip>
-                <TooltipTrigger asChild>
-                  <Card className="bg-[#003366] text-white cursor-pointer">
-                    <CardHeader>
-                      <CardTitle className="text-xl">Business & Commerce</CardTitle>
-                    </CardHeader>
-                  </Card>
-                </TooltipTrigger>
-                <TooltipContent>
-                  <p className="max-w-xs">Empowering SMEs and informal sector players with premium business education in local languages, reducing business failure rates.</p>
-                </TooltipContent>
-              </Tooltip>
-            </TooltipProvider>
+            {sectors.map((sector, index) => (
+              <Card key={index} className="bg-[#003366] text-white cursor-pointer" onClick={() => toggleSector(index)}>
+                <CardHeader>
+                  <CardTitle className="text-xl flex justify-between items-center">
+                    {sector.title}
+                    {expandedSector === index ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
+                  </CardTitle>
+                </CardHeader>
+                {expandedSector === index && (
+                  <CardContent>
+                    <p>{sector.content}</p>
+                  </CardContent>
+                )}
+              </Card>
+            ))}
           </div>
         </section>
 
@@ -130,28 +104,36 @@ const Index = () => {
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <Link to="/signup-login">
-              <Button className="w-full h-full flex flex-col items-center justify-center bg-[#003366] hover:bg-[#004080] text-white p-6 group">
-                <Laptop className="h-12 w-12 mb-4 group-hover:text-[#FF6B00] transition-colors duration-300" />
-                <span>Translate via web</span>
-              </Button>
+              <motion.div whileHover={{ scale: 1.1 }} className="w-full h-full">
+                <Button className="w-full h-full flex flex-col items-center justify-center bg-[#003366] hover:bg-[#004080] text-white p-6 group">
+                  <Laptop className="h-12 w-12 mb-4 group-hover:text-[#FF6B00] transition-colors duration-300" />
+                  <span>Translate via web</span>
+                </Button>
+              </motion.div>
             </Link>
             <Link to="/signup-login">
-              <Button className="w-full h-full flex flex-col items-center justify-center bg-[#003366] hover:bg-[#004080] text-white p-6 group">
-                <Smartphone className="h-12 w-12 mb-4 group-hover:text-[#FF6B00] transition-colors duration-300" />
-                <span>Translate on mobile</span>
-              </Button>
+              <motion.div whileHover={{ scale: 1.1 }} className="w-full h-full">
+                <Button className="w-full h-full flex flex-col items-center justify-center bg-[#003366] hover:bg-[#004080] text-white p-6 group">
+                  <Smartphone className="h-12 w-12 mb-4 group-hover:text-[#FF6B00] transition-colors duration-300" />
+                  <span>Translate on mobile</span>
+                </Button>
+              </motion.div>
             </Link>
             <Link to="/signup-login">
-              <Button className="w-full h-full flex flex-col items-center justify-center bg-[#003366] hover:bg-[#004080] text-white p-6 group">
-                <MessageCircle className="h-12 w-12 mb-4 group-hover:text-[#FF6B00] transition-colors duration-300" />
-                <span>Translate on WhatsApp</span>
-              </Button>
+              <motion.div whileHover={{ scale: 1.1 }} className="w-full h-full">
+                <Button className="w-full h-full flex flex-col items-center justify-center bg-[#003366] hover:bg-[#004080] text-white p-6 group">
+                  <MessageCircle className="h-12 w-12 mb-4 group-hover:text-[#FF6B00] transition-colors duration-300" />
+                  <span>Translate on WhatsApp</span>
+                </Button>
+              </motion.div>
             </Link>
             <Link to="/signup-login">
-              <Button className="w-full h-full flex flex-col items-center justify-center bg-[#003366] hover:bg-[#004080] text-white p-6 group">
-                <Send className="h-12 w-12 mb-4 group-hover:text-[#FF6B00] transition-colors duration-300" />
-                <span>Translate on Telegram</span>
-              </Button>
+              <motion.div whileHover={{ scale: 1.1 }} className="w-full h-full">
+                <Button className="w-full h-full flex flex-col items-center justify-center bg-[#003366] hover:bg-[#004080] text-white p-6 group">
+                  <Send className="h-12 w-12 mb-4 group-hover:text-[#FF6B00] transition-colors duration-300" />
+                  <span>Translate on Telegram</span>
+                </Button>
+              </motion.div>
             </Link>
           </div>
         </section>

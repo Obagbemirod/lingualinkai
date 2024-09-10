@@ -6,9 +6,11 @@ import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Upload, Link, Mic, Volume2 } from 'lucide-react';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
-import { FaFilePdf, FaFileWord, FaFilePowerpoint, FaFileExcel, FaYoutube, FaFileVideo, FaFileAudio } from 'react-icons/fa';
+import { FaFilePdf, FaFileWord, FaFilePowerpoint, FaFileExcel, FaFileVideo, FaFileAudio } from 'react-icons/fa';
 import { SiUdemy, SiCoursera, SiLinkedin, SiEdx } from 'react-icons/si';
+import { FaYoutube } from 'react-icons/fa';
 import { motion } from 'framer-motion';
+import { Link as RouterLink } from 'react-router-dom';
 
 const Translate = () => {
   const [sourceLanguage, setSourceLanguage] = useState('');
@@ -25,8 +27,12 @@ const Translate = () => {
       <header className="container mx-auto mb-8 flex justify-between items-center">
         <h1 className="text-3xl font-bold text-white">LinguaLink AI Translator</h1>
         <nav>
-          <Button variant="outline" className="mr-4 text-white border-white hover:bg-[#004080]">Home</Button>
-          <Button variant="outline" className="text-white border-white hover:bg-[#004080]">About</Button>
+          <RouterLink to="/">
+            <Button variant="outline" className="mr-4 text-white border-white hover:bg-[#004080]">Home</Button>
+          </RouterLink>
+          <RouterLink to="/about">
+            <Button variant="outline" className="text-white border-white hover:bg-[#004080]">About</Button>
+          </RouterLink>
         </nav>
       </header>
 
@@ -103,13 +109,20 @@ const Translate = () => {
               <p className="mb-4 text-gray-300">Upload files in various formats:</p>
               <div className="flex flex-wrap justify-center gap-4 mb-4">
                 <input type="file" ref={fileInputRef} style={{ display: 'none' }} multiple />
-                {[FaFilePdf, FaFileWord, FaFilePowerpoint, FaFileExcel, FaFileVideo, FaFileAudio].map((Icon, index) => (
+                {[
+                  { Icon: FaFilePdf, color: '#FF0000' },
+                  { Icon: FaFileWord, color: '#2B579A' },
+                  { Icon: FaFilePowerpoint, color: '#D24726' },
+                  { Icon: FaFileExcel, color: '#217346' },
+                  { Icon: FaFileVideo, color: '#FF6550' },
+                  { Icon: FaFileAudio, color: '#FFD700' }
+                ].map(({ Icon, color }, index) => (
                   <motion.div
                     key={index}
                     whileHover={{ scale: 1.2 }}
                     onClick={() => handleFileUpload(Icon.name)}
                   >
-                    <Icon className="text-3xl text-white cursor-pointer" />
+                    <Icon className="text-3xl cursor-pointer" style={{ color }} />
                   </motion.div>
                 ))}
               </div>
@@ -128,12 +141,19 @@ const Translate = () => {
             <CardContent>
               <Input placeholder="Enter URL to translate" className="mb-4 bg-[#003366] text-white placeholder-gray-300" />
               <div className="flex justify-center gap-4 mb-4">
-                {[FaYoutube, SiUdemy, SiCoursera, SiLinkedin, SiEdx].map((Icon, index) => (
+                {[
+                  { Icon: FaYoutube, color: '#FF0000', url: 'https://www.youtube.com/' },
+                  { Icon: SiUdemy, color: '#A435F0', url: 'https://www.udemy.com/' },
+                  { Icon: SiCoursera, color: '#0056D2', url: 'https://www.coursera.org/' },
+                  { Icon: SiLinkedin, color: '#0A66C2', url: 'https://www.linkedin.com/' },
+                  { Icon: SiEdx, color: '#02262B', url: 'https://www.edx.org/' }
+                ].map(({ Icon, color, url }, index) => (
                   <motion.div
                     key={index}
                     whileHover={{ scale: 1.2 }}
+                    onClick={() => window.open(url, '_blank')}
                   >
-                    <Icon className="text-3xl text-white cursor-pointer" />
+                    <Icon className="text-3xl cursor-pointer" style={{ color }} />
                   </motion.div>
                 ))}
               </div>
