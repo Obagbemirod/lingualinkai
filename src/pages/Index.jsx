@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Globe, BookOpen, Zap, Users, Laptop, Smartphone, MessageCircle, Send, ChevronDown, ChevronUp } from 'lucide-react';
+import { Globe, BookOpen, Zap, Users, Laptop, Smartphone, MessageCircle, Send, ChevronDown } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 import { motion } from "framer-motion";
-import Logo from '../components/Logo';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -51,11 +50,13 @@ const Index = () => {
       className="min-h-screen bg-[#002244]"
     >
       <header className="container mx-auto py-6 flex justify-between items-center">
-        <Logo />
+        <h1 className="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-green-500 to-red-500">
+          LinguaLink AI
+        </h1>
         <nav className="flex items-center space-x-4">
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button variant="ghost" className="text-white hover:bg-[#003366] transition-all duration-300">About Us</Button>
+              <Button variant="outline" className="bg-white text-black hover:bg-gray-100">About Us <ChevronDown className="ml-2 h-4 w-4" /></Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent>
               <DropdownMenuItem><Link to="/services">Services</Link></DropdownMenuItem>
@@ -65,7 +66,7 @@ const Index = () => {
           </DropdownMenu>
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button variant="ghost" className="text-white hover:bg-[#003366] transition-all duration-300">Languages</Button>
+              <Button variant="outline" className="bg-white text-black hover:bg-gray-100">Languages <ChevronDown className="ml-2 h-4 w-4" /></Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent>
               {["Arabic", "French", "Swahili", "Hausa", "Igbo", "Yoruba", "Berber", "Oromo", "Portuguese", "Amharic"].map((lang) => (
@@ -75,7 +76,7 @@ const Index = () => {
           </DropdownMenu>
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button variant="ghost" className="text-white hover:bg-[#003366] transition-all duration-300">Integrate</Button>
+              <Button variant="outline" className="bg-white text-black hover:bg-gray-100">Integrate <ChevronDown className="ml-2 h-4 w-4" /></Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent>
               <DropdownMenuItem><Link to="/telegram">Telegram</Link></DropdownMenuItem>
@@ -83,7 +84,7 @@ const Index = () => {
               <DropdownMenuItem><Link to="/lms">LMS</Link></DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
-          <Button variant="ghost" className="text-white hover:bg-[#003366] transition-all duration-300">
+          <Button variant="outline" className="bg-white text-black hover:bg-gray-100">
             <Link to="/partner">Partner with Us</Link>
           </Button>
           <Link to="/signup-login">
@@ -121,7 +122,7 @@ const Index = () => {
                 <CardHeader>
                   <CardTitle className="text-xl flex justify-between items-center">
                     {sector.title}
-                    {expandedSector === index ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
+                    {expandedSector === index ? <ChevronDown className="h-4 w-4 transform rotate-180" /> : <ChevronDown className="h-4 w-4" />}
                   </CardTitle>
                 </CardHeader>
                 {expandedSector === index && (
@@ -140,38 +141,22 @@ const Index = () => {
             We enable users to access translated contents in their native languages and most familiar learning environments.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <Link to="/translate">
-              <motion.div whileHover={{ scale: 1.1 }} className="w-full h-full">
-                <Button className="w-full h-full flex flex-col items-center justify-center bg-[#003366] hover:bg-[#004080] text-white p-6 group">
-                  <Laptop className="h-12 w-12 mb-4 group-hover:text-[#FF6B00] transition-colors duration-300" />
-                  <span>Translate via web</span>
+            {[
+              { icon: <Laptop className="h-12 w-12 mb-4" />, text: "Translate via web" },
+              { icon: <Smartphone className="h-12 w-12 mb-4" />, text: "Translate on mobile" },
+              { icon: <MessageCircle className="h-12 w-12 mb-4" />, text: "Translate on WhatsApp" },
+              { icon: <Send className="h-12 w-12 mb-4" />, text: "Translate on Telegram" }
+            ].map((item, index) => (
+              <motion.div key={index} whileHover={{ scale: 1.1 }} className="w-full h-full">
+                <Button
+                  className="w-full h-full flex flex-col items-center justify-center bg-[#003366] hover:bg-[#004080] text-white p-6 group"
+                  onClick={() => navigate('/signup-login')}
+                >
+                  {React.cloneElement(item.icon, { className: `${item.icon.props.className} group-hover:text-[#FF6B00] transition-colors duration-300` })}
+                  <span>{item.text}</span>
                 </Button>
               </motion.div>
-            </Link>
-            <Link to="/translate">
-              <motion.div whileHover={{ scale: 1.1 }} className="w-full h-full">
-                <Button className="w-full h-full flex flex-col items-center justify-center bg-[#003366] hover:bg-[#004080] text-white p-6 group">
-                  <Smartphone className="h-12 w-12 mb-4 group-hover:text-[#FF6B00] transition-colors duration-300" />
-                  <span>Translate on mobile</span>
-                </Button>
-              </motion.div>
-            </Link>
-            <Link to="/whatsapp">
-              <motion.div whileHover={{ scale: 1.1 }} className="w-full h-full">
-                <Button className="w-full h-full flex flex-col items-center justify-center bg-[#003366] hover:bg-[#004080] text-white p-6 group">
-                  <MessageCircle className="h-12 w-12 mb-4 group-hover:text-[#FF6B00] transition-colors duration-300" />
-                  <span>Translate on WhatsApp</span>
-                </Button>
-              </motion.div>
-            </Link>
-            <Link to="/telegram">
-              <motion.div whileHover={{ scale: 1.1 }} className="w-full h-full">
-                <Button className="w-full h-full flex flex-col items-center justify-center bg-[#003366] hover:bg-[#004080] text-white p-6 group">
-                  <Send className="h-12 w-12 mb-4 group-hover:text-[#FF6B00] transition-colors duration-300" />
-                  <span>Translate on Telegram</span>
-                </Button>
-              </motion.div>
-            </Link>
+            ))}
           </div>
         </section>
       </main>
