@@ -144,12 +144,13 @@ const Index = () => {
           <p className="text-xl text-center text-gray-300 mb-8">
             We enable users to access translated contents in their native languages and most familiar learning environments.
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
             {[
               { icon: <Laptop className="h-12 w-12 mb-4" />, text: "Translate via web", path: "/translate" },
               { icon: <Smartphone className="h-12 w-12 mb-4" />, text: "Translate on mobile", path: "/translate" },
               { icon: <MessageCircle className="h-12 w-12 mb-4" />, text: "Translate on WhatsApp", path: "/whatsapp" },
-              { icon: <Send className="h-12 w-12 mb-4" />, text: "Translate on Telegram", path: "/telegram" }
+              { icon: <Send className="h-12 w-12 mb-4" />, text: "Translate on Telegram", path: "/telegram" },
+              { icon: <BookOpen className="h-12 w-12 mb-4" />, text: "Translate via LMS", path: "/lms" }
             ].map(({ icon, text, path }, index) => (
               <motion.div key={index} whileHover={{ scale: 1.1 }} className="w-full h-full">
                 <Button
