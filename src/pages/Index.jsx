@@ -42,6 +42,10 @@ const Index = () => {
     }
   ];
 
+  const handleIconClick = (path) => {
+    navigate('/signup-login', { state: { redirectTo: path } });
+  };
+
   return (
     <motion.div 
       initial={{ opacity: 0 }}
@@ -142,18 +146,18 @@ const Index = () => {
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
-              { icon: <Laptop className="h-12 w-12 mb-4" />, text: "Translate via web" },
-              { icon: <Smartphone className="h-12 w-12 mb-4" />, text: "Translate on mobile" },
-              { icon: <MessageCircle className="h-12 w-12 mb-4" />, text: "Translate on WhatsApp" },
-              { icon: <Send className="h-12 w-12 mb-4" />, text: "Translate on Telegram" }
-            ].map((item, index) => (
+              { icon: <Laptop className="h-12 w-12 mb-4" />, text: "Translate via web", path: "/translate" },
+              { icon: <Smartphone className="h-12 w-12 mb-4" />, text: "Translate on mobile", path: "/translate" },
+              { icon: <MessageCircle className="h-12 w-12 mb-4" />, text: "Translate on WhatsApp", path: "/whatsapp" },
+              { icon: <Send className="h-12 w-12 mb-4" />, text: "Translate on Telegram", path: "/telegram" }
+            ].map(({ icon, text, path }, index) => (
               <motion.div key={index} whileHover={{ scale: 1.1 }} className="w-full h-full">
                 <Button
                   className="w-full h-full flex flex-col items-center justify-center bg-[#003366] hover:bg-[#004080] text-white p-6 group"
-                  onClick={() => navigate('/signup-login')}
+                  onClick={() => handleIconClick(path)}
                 >
-                  {React.cloneElement(item.icon, { className: `${item.icon.props.className} group-hover:text-[#FF6B00] transition-colors duration-300` })}
-                  <span>{item.text}</span>
+                  {React.cloneElement(icon, { className: `${icon.props.className} group-hover:text-[#FF6B00] transition-colors duration-300` })}
+                  <span>{text}</span>
                 </Button>
               </motion.div>
             ))}
