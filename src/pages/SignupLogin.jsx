@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -9,6 +9,7 @@ import { useNavigate } from 'react-router-dom';
 
 const SignupLogin = () => {
   const navigate = useNavigate();
+  const [isLogin, setIsLogin] = useState(true);
 
   const handleSignIn = (provider) => {
     // In a real app, we would implement actual authentication here
@@ -16,10 +17,14 @@ const SignupLogin = () => {
     navigate('/translate');
   };
 
-  const handleEmailSignIn = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     // In a real app, we would validate the email and password here
     navigate('/translate');
+  };
+
+  const toggleMode = () => {
+    setIsLogin(!isLogin);
   };
 
   return (
@@ -31,7 +36,7 @@ const SignupLogin = () => {
     >
       <Card className="w-full max-w-md bg-white">
         <CardHeader>
-          <CardTitle className="text-2xl font-bold text-center">Sign Up / Log In</CardTitle>
+          <CardTitle className="text-2xl font-bold text-center">{isLogin ? 'Log In' : 'Sign Up'}</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="space-y-4">
@@ -49,7 +54,7 @@ const SignupLogin = () => {
                 <span className="bg-white px-2 text-gray-500">Or continue with</span>
               </div>
             </div>
-            <form onSubmit={handleEmailSignIn}>
+            <form onSubmit={handleSubmit}>
               <div className="space-y-2">
                 <Label htmlFor="email">Email</Label>
                 <Input id="email" type="email" placeholder="m@example.com" />
@@ -58,10 +63,22 @@ const SignupLogin = () => {
                 <Label htmlFor="password">Password</Label>
                 <Input id="password" type="password" />
               </div>
+              {!isLogin && (
+                <div className="space-y-2">
+                  <Label htmlFor="confirmPassword">Confirm Password</Label>
+                  <Input id="confirmPassword" type="password" />
+                </div>
+              )}
               <Button type="submit" className="w-full mt-4 bg-[#FF6B00] hover:bg-[#FF8C00] text-white">
-                Sign Up / Log In
+                {isLogin ? 'Log In' : 'Sign Up'}
               </Button>
             </form>
+            <p className="text-center">
+              {isLogin ? "Don't have an account?" : "Already have an account?"}
+              <Button variant="link" onClick={toggleMode} className="text-[#FF6B00]">
+                {isLogin ? 'Sign Up' : 'Log In'}
+              </Button>
+            </p>
           </div>
         </CardContent>
       </Card>

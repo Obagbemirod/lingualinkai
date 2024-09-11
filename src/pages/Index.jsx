@@ -92,7 +92,7 @@ const Index = () => {
             <Link to="/partner">Partner with Us</Link>
           </Button>
           <Link to="/signup-login">
-            <Button className="bg-[#FF6B00] text-white hover:bg-[#FF8C00] transition-all duration-300">Signup/Login</Button>
+            <Button className="bg-[#FF6B00] text-white hover:bg-[#FF8C00] transition-all duration-300">Login</Button>
           </Link>
         </nav>
       </header>
@@ -112,7 +112,7 @@ const Index = () => {
           </p>
           <Button 
             onClick={handleTranslateClick}
-            className="mt-8 bg-[#FF6B00] text-white text-2xl font-extrabold py-6 px-12 rounded-lg transition-all duration-300 transform hover:scale-105 hover:bg-[#FF8C00] shadow-lg animate-[slow-pulse_8s_ease-in-out_infinite]"
+            className="mt-8 bg-[#FF6B00] text-white text-2xl font-extrabold py-6 px-12 rounded-lg transition-all duration-300 transform hover:scale-105 hover:bg-[#FF8C00] shadow-lg"
           >
             TRANSLATE NOW
           </Button>
@@ -150,7 +150,7 @@ const Index = () => {
               { icon: <Smartphone className="h-12 w-12 mb-4" />, text: "Translate on mobile", path: "/translate" },
               { icon: <MessageCircle className="h-12 w-12 mb-4" />, text: "Translate on WhatsApp", path: "/whatsapp" },
               { icon: <Send className="h-12 w-12 mb-4" />, text: "Translate on Telegram", path: "/telegram" },
-              { icon: <BookOpen className="h-12 w-12 mb-4" />, text: "Translate via LMS", path: "/lms" }
+              { icon: <BookOpen className="h-12 w-12 mb-4" />, text: "Translate via LMS", path: "/signup-login" }
             ].map(({ icon, text, path }, index) => (
               <motion.div key={index} whileHover={{ scale: 1.1 }} className="w-full h-full">
                 <Button
