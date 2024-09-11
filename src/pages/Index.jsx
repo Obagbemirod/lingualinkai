@@ -62,19 +62,19 @@ const Index = () => {
             <DropdownMenuTrigger asChild>
               <Button variant="outline" className="bg-white text-black hover:bg-gray-100">About Us <ChevronDown className="ml-2 h-4 w-4" /></Button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent>
-              <DropdownMenuItem><Link to="/services">Services</Link></DropdownMenuItem>
-              <DropdownMenuItem><Link to="/where-we-work">Where we Work</Link></DropdownMenuItem>
-              <DropdownMenuItem><Link to="/contact">Contact</Link></DropdownMenuItem>
+            <DropdownMenuContent className="bg-white">
+              <DropdownMenuItem className="text-black"><Link to="/services">Services</Link></DropdownMenuItem>
+              <DropdownMenuItem className="text-black"><Link to="/where-we-work">Where we Work</Link></DropdownMenuItem>
+              <DropdownMenuItem className="text-black"><Link to="/contact">Contact</Link></DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="outline" className="bg-white text-black hover:bg-gray-100">Languages <ChevronDown className="ml-2 h-4 w-4" /></Button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent>
+            <DropdownMenuContent className="bg-white">
               {["Arabic", "French", "Swahili", "Hausa", "Igbo", "Yoruba", "Berber", "Oromo", "Portuguese", "Amharic"].map((lang) => (
-                <DropdownMenuItem key={lang}><Link to={`/language/${lang.toLowerCase()}`}>{lang}</Link></DropdownMenuItem>
+                <DropdownMenuItem key={lang} className="text-black"><Link to={`/language/${lang.toLowerCase()}`}>{lang}</Link></DropdownMenuItem>
               ))}
             </DropdownMenuContent>
           </DropdownMenu>
@@ -82,10 +82,10 @@ const Index = () => {
             <DropdownMenuTrigger asChild>
               <Button variant="outline" className="bg-white text-black hover:bg-gray-100">Integrate <ChevronDown className="ml-2 h-4 w-4" /></Button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent>
-              <DropdownMenuItem><Link to="/telegram">Telegram</Link></DropdownMenuItem>
-              <DropdownMenuItem><Link to="/whatsapp">WhatsApp</Link></DropdownMenuItem>
-              <DropdownMenuItem><Link to="/lms">LMS</Link></DropdownMenuItem>
+            <DropdownMenuContent className="bg-white">
+              <DropdownMenuItem className="text-black"><Link to="/telegram">Telegram</Link></DropdownMenuItem>
+              <DropdownMenuItem className="text-black"><Link to="/whatsapp">WhatsApp</Link></DropdownMenuItem>
+              <DropdownMenuItem className="text-black"><Link to="/lms">LMS</Link></DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
           <Button variant="outline" className="bg-white text-black hover:bg-gray-100">
