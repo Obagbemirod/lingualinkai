@@ -20,7 +20,7 @@ const Index = () => {
   };
 
   const handleIconClick = (path) => {
-    navigate('/signup-login', { state: { redirectTo: path } });
+    navigate(path);
   };
 
   const toggleSector = (sector) => {
