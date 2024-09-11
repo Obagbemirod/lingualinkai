@@ -16,7 +16,11 @@ const Index = () => {
   const [expandedSector, setExpandedSector] = useState(null);
 
   const handleTranslateClick = () => {
-    navigate('/signup-login');
+    navigate('/signup-login', { state: { redirectTo: '/translate' } });
+  };
+
+  const handleIconClick = (path) => {
+    navigate('/signup-login', { state: { redirectTo: path } });
   };
 
   const toggleSector = (sector) => {
@@ -41,10 +45,6 @@ const Index = () => {
       content: "Empowering SMEs and informal sector players with premium business education in local languages, reducing business failure rates."
     }
   ];
-
-  const handleIconClick = (path) => {
-    navigate('/signup-login', { state: { redirectTo: path } });
-  };
 
   return (
     <motion.div 
