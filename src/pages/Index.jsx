@@ -85,7 +85,7 @@ const Index = () => {
             <DropdownMenuContent className="bg-white">
               <DropdownMenuItem className="text-black"><Link to="/telegram">Telegram</Link></DropdownMenuItem>
               <DropdownMenuItem className="text-black"><Link to="/whatsapp">WhatsApp</Link></DropdownMenuItem>
-              <DropdownMenuItem className="text-black"><Link to="/lms">LMS</Link></DropdownMenuItem>
+              <DropdownMenuItem className="text-black"><Link to="/signup-login" state={{ redirectTo: '/lms' }}>LMS</Link></DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
           <Button variant="outline" className="bg-white text-black hover:bg-gray-100">
@@ -150,12 +150,12 @@ const Index = () => {
               { icon: <Smartphone className="h-12 w-12 mb-4" />, text: "Translate on mobile", path: "/translate" },
               { icon: <MessageCircle className="h-12 w-12 mb-4" />, text: "Translate on WhatsApp", path: "/whatsapp" },
               { icon: <Send className="h-12 w-12 mb-4" />, text: "Translate on Telegram", path: "/telegram" },
-              { icon: <BookOpen className="h-12 w-12 mb-4" />, text: "Translate via LMS", path: "/signup-login" }
-            ].map(({ icon, text, path }, index) => (
+              { icon: <BookOpen className="h-12 w-12 mb-4" />, text: "Translate via LMS", path: "/signup-login", state: { redirectTo: '/lms' } }
+            ].map(({ icon, text, path, state }, index) => (
               <motion.div key={index} whileHover={{ scale: 1.1 }} className="w-full h-full">
                 <Button
                   className="w-full h-full flex flex-col items-center justify-center bg-[#003366] hover:bg-[#004080] text-white p-6 group"
-                  onClick={() => handleIconClick(path)}
+                  onClick={() => navigate(path, { state })}
                 >
                   {React.cloneElement(icon, { className: `${icon.props.className} group-hover:text-[#FF6B00] transition-colors duration-300` })}
                   <span>{text}</span>
