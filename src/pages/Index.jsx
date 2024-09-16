@@ -88,10 +88,10 @@ const Index = () => {
             <DropdownMenuTrigger asChild>
               <Button variant="outline" className="bg-white text-black hover:bg-gray-100">Integrate <ChevronDown className="ml-2 h-4 w-4" /></Button>
             </DropdownMenuTrigger>
+            
             <DropdownMenuContent className="bg-white">
               <DropdownMenuItem className="text-black"><Link to="/telegram">Telegram</Link></DropdownMenuItem>
               <DropdownMenuItem className="text-black"><Link to="/whatsapp">WhatsApp</Link></DropdownMenuItem>
-              <DropdownMenuItem className="text-black"><Link to="/signup-login" state={{ redirectTo: '/lms' }}>LMS</Link></DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
           <Button variant="outline" className="bg-white text-black hover:bg-gray-100">
