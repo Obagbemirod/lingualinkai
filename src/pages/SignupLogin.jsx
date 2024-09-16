@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { FaGoogle, FaFacebook, FaYoutube, FaLinkedin } from 'react-icons/fa';
+import { FaYoutube, FaLinkedin } from 'react-icons/fa';
 import { SiUdemy, SiCoursera, SiEdx } from 'react-icons/si';
 import { motion } from "framer-motion";
 import { useNavigate, useLocation } from 'react-router-dom';
@@ -33,13 +33,11 @@ const SignupLogin = () => {
   };
 
   const platforms = [
-    { name: 'Google', icon: <FaGoogle /> },
-    { name: 'Facebook', icon: <FaFacebook /> },
-    { name: 'YouTube', icon: <FaYoutube /> },
-    { name: 'Udemy', icon: <SiUdemy /> },
-    { name: 'Coursera', icon: <SiCoursera /> },
-    { name: 'edX', icon: <SiEdx /> },
-    { name: 'LinkedIn Learning', icon: <FaLinkedin /> },
+    { name: 'YouTube', icon: <FaYoutube />, url: 'https://www.youtube.com/account_advanced' },
+    { name: 'Udemy', icon: <SiUdemy />, url: 'https://www.udemy.com/join/login-popup/' },
+    { name: 'Coursera', icon: <SiCoursera />, url: 'https://www.coursera.org/login' },
+    { name: 'edX', icon: <SiEdx />, url: 'https://courses.edx.org/login' },
+    { name: 'LinkedIn Learning', icon: <FaLinkedin />, url: 'https://www.linkedin.com/learning/login' },
   ];
 
   return (
@@ -59,7 +57,7 @@ const SignupLogin = () => {
               <Button
                 key={platform.name}
                 className="w-full bg-gray-100 hover:bg-gray-200 text-gray-800 flex items-center justify-center"
-                onClick={() => handleSignIn(platform.name)}
+                onClick={() => window.open(platform.url, '_blank')}
               >
                 {React.cloneElement(platform.icon, { className: "mr-2" })}
                 Continue with {platform.name}
