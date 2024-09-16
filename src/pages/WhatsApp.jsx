@@ -3,12 +3,13 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { MessageCircle, Droplet, Smile, AlertCircle } from 'lucide-react';
 import { motion } from "framer-motion";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const WhatsApp = () => {
   const [selectedLanguage, setSelectedLanguage] = useState(null);
   const [currentStep, setCurrentStep] = useState(0);
   const chatRef = useRef(null);
+  const navigate = useNavigate();
 
   const languages = ["English", "French", "Swahili", "Arabic"];
   const healthContent = {
@@ -80,8 +81,12 @@ const WhatsApp = () => {
   }, [currentStep, selectedLanguage]);
 
   const handleBack = () => {
-    setSelectedLanguage(null);
-    setCurrentStep(0);
+    if (selectedLanguage) {
+      setSelectedLanguage(null);
+      setCurrentStep(0);
+    } else {
+      navigate('/');
+    }
   };
 
   return (
@@ -92,12 +97,12 @@ const WhatsApp = () => {
       className="min-h-screen bg-[#ECE5DD] p-8"
     >
       <div className="flex justify-between mb-4">
+        <Button variant="outline" onClick={handleBack}>
+          {selectedLanguage ? 'Back' : 'Home'}
+        </Button>
         <Link to="/">
           <Button variant="outline">Home</Button>
         </Link>
-        {selectedLanguage && (
-          <Button variant="outline" onClick={handleBack}>Back</Button>
-        )}
       </div>
       <Card className="max-w-md mx-auto bg-[#E4DDD5] shadow-xl">
         <CardHeader className="bg-[#075E54] text-white">
