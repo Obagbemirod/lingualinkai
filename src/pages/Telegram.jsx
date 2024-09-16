@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Send, Apple, Carrot, Bread, Egg, Milk } from 'lucide-react';
+import { Send, Apple, Carrot, Utensils, Egg, Milk } from 'lucide-react';
 import { motion } from "framer-motion";
 
 const Telegram = () => {
@@ -18,7 +18,7 @@ const Telegram = () => {
       { type: 'text', content: "Fruits and vegetables provide essential vitamins, minerals, and fiber. Aim for a colorful plate!" },
       { type: 'icon', content: <Carrot className="w-8 h-8 text-orange-500" /> },
       { type: 'text', content: "Whole grains offer energy and fiber. Choose brown rice, whole wheat bread, and oats over refined grains." },
-      { type: 'icon', content: <Bread className="w-8 h-8 text-yellow-700" /> },
+      { type: 'icon', content: <Utensils className="w-8 h-8 text-yellow-700" /> },
       { type: 'text', content: "Proteins are crucial for building and repairing tissues. Include lean meats, fish, beans, or tofu in your meals." },
       { type: 'icon', content: <Egg className="w-8 h-8 text-yellow-200" /> },
       { type: 'text', content: "Dairy products are rich in calcium and vitamin D. If you're lactose intolerant, try fortified plant-based alternatives." },
@@ -33,7 +33,7 @@ const Telegram = () => {
       { type: 'text', content: "Les fruits et légumes fournissent des vitamines, des minéraux et des fibres essentiels. Visez une assiette colorée !" },
       { type: 'icon', content: <Carrot className="w-8 h-8 text-orange-500" /> },
       { type: 'text', content: "Les céréales complètes offrent de l'énergie et des fibres. Choisissez le riz brun, le pain complet et l'avoine plutôt que les céréales raffinées." },
-      { type: 'icon', content: <Bread className="w-8 h-8 text-yellow-700" /> },
+      { type: 'icon', content: <Utensils className="w-8 h-8 text-yellow-700" /> },
       { type: 'text', content: "Les protéines sont cruciales pour construire et réparer les tissus. Incluez des viandes maigres, du poisson, des haricots ou du tofu dans vos repas." },
       { type: 'icon', content: <Egg className="w-8 h-8 text-yellow-200" /> },
       { type: 'text', content: "Les produits laitiers sont riches en calcium et en vitamine D. Si vous êtes intolérant au lactose, essayez des alternatives végétales fortifiées." },
@@ -48,7 +48,7 @@ const Telegram = () => {
       { type: 'text', content: "Matunda na mboga hutoa vitamini muhimu, madini, na nyuzinyuzi. Lenga sahani yenye rangi nyingi!" },
       { type: 'icon', content: <Carrot className="w-8 h-8 text-orange-500" /> },
       { type: 'text', content: "Nafaka kamili hutoa nishati na nyuzinyuzi. Chagua mchele wa kahawia, mkate wa ngano kamili, na oats badala ya nafaka zilizosafishwa." },
-      { type: 'icon', content: <Bread className="w-8 h-8 text-yellow-700" /> },
+      { type: 'icon', content: <Utensils className="w-8 h-8 text-yellow-700" /> },
       { type: 'text', content: "Protini ni muhimu kwa kujenga na kukarabati tishu. Jumuisha nyama nyembamba, samaki, maharagwe, au tofu katika milo yako." },
       { type: 'icon', content: <Egg className="w-8 h-8 text-yellow-200" /> },
       { type: 'text', content: "Bidhaa za maziwa ni tajiri kwa kalsiamu na vitamini D. Ikiwa huwezi kuvumilia laktosi, jaribu mbadala wa mimea iliyoimarishwa." },
@@ -63,7 +63,7 @@ const Telegram = () => {
       { type: 'text', content: "توفر الفواكه والخضروات الفيتامينات والمعادن والألياف الأساسية. اهدف إلى طبق ملون!" },
       { type: 'icon', content: <Carrot className="w-8 h-8 text-orange-500" /> },
       { type: 'text', content: "توفر الحبوب الكاملة الطاقة والألياف. اختر الأرز البني والخبز الأسمر والشوفان بدلاً من الحبوب المكررة." },
-      { type: 'icon', content: <Bread className="w-8 h-8 text-yellow-700" /> },
+      { type: 'icon', content: <Utensils className="w-8 h-8 text-yellow-700" /> },
       { type: 'text', content: "البروتينات ضرورية لبناء الأنسجة وإصلاحها. قم بتضمين اللحوم الخالية من الدهون والأسماك والفاصوليا أو التوفو في وجباتك." },
       { type: 'icon', content: <Egg className="w-8 h-8 text-yellow-200" /> },
       { type: 'text', content: "منتجات الألبان غنية بالكالسيوم وفيتامين د. إذا كنت تعاني من عدم تحمل اللاكتوز، جرب البدائل النباتية المدعمة." },
