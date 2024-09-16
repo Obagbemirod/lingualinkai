@@ -24,7 +24,6 @@ const Telegram = () => {
       { type: 'text', content: "Dairy products are rich in calcium and vitamin D. If you're lactose intolerant, try fortified plant-based alternatives." },
       { type: 'icon', content: <Milk className="w-8 h-8 text-blue-100" /> },
       { type: 'text', content: "Remember, moderation is key. Enjoy a variety of foods and stay hydrated. A balanced diet leads to better health!" },
-      { type: 'infographic', content: "https://example.com/balanced-diet-infographic.jpg" },
     ],
     French: [
       { type: 'text', content: "Bienvenue dans notre programme d'éducation à la santé sur Telegram. Aujourd'hui, nous allons apprendre l'importance d'une alimentation équilibrée." },
@@ -39,7 +38,6 @@ const Telegram = () => {
       { type: 'text', content: "Les produits laitiers sont riches en calcium et en vitamine D. Si vous êtes intolérant au lactose, essayez des alternatives végétales fortifiées." },
       { type: 'icon', content: <Milk className="w-8 h-8 text-blue-100" /> },
       { type: 'text', content: "N'oubliez pas, la modération est la clé. Profitez d'une variété d'aliments et restez hydraté. Une alimentation équilibrée conduit à une meilleure santé !" },
-      { type: 'infographic', content: "https://example.com/balanced-diet-infographic.jpg" },
     ],
     Swahili: [
       { type: 'text', content: "Karibu katika programu yetu ya elimu ya afya kwenye Telegram. Leo, tutajifunza umuhimu wa lishe yenye uwiano." },
@@ -54,7 +52,6 @@ const Telegram = () => {
       { type: 'text', content: "Bidhaa za maziwa ni tajiri kwa kalsiamu na vitamini D. Ikiwa huwezi kuvumilia laktosi, jaribu mbadala wa mimea iliyoimarishwa." },
       { type: 'icon', content: <Milk className="w-8 h-8 text-blue-100" /> },
       { type: 'text', content: "Kumbuka, kiasi ni muhimu. Furahia vyakula mbalimbali na unywe maji ya kutosha. Lishe yenye uwiano husababisha afya bora!" },
-      { type: 'infographic', content: "https://example.com/balanced-diet-infographic.jpg" },
     ],
     Arabic: [
       { type: 'text', content: "مرحبًا بك في برنامجنا التعليمي الصحي على تيليجرام. اليوم، سنتعلم عن أهمية النظام الغذائي المتوازن." },
@@ -69,7 +66,6 @@ const Telegram = () => {
       { type: 'text', content: "منتجات الألبان غنية بالكالسيوم وفيتامين د. إذا كنت تعاني من عدم تحمل اللاكتوز، جرب البدائل النباتية المدعمة." },
       { type: 'icon', content: <Milk className="w-8 h-8 text-blue-100" /> },
       { type: 'text', content: "تذكر، الاعتدال هو المفتاح. استمتع بمجموعة متنوعة من الأطعمة وحافظ على ترطيب جسمك. النظام الغذائي المتوازن يؤدي إلى صحة أفضل!" },
-      { type: 'infographic', content: "https://example.com/balanced-diet-infographic.jpg" },
     ],
   };
 
@@ -122,7 +118,6 @@ const Telegram = () => {
                   <div className="bg-white p-3 rounded-lg shadow">
                     {item.type === 'text' && <p>{item.content}</p>}
                     {item.type === 'icon' && <div className="flex justify-center">{item.content}</div>}
-                    {item.type === 'infographic' && <img src={item.content} alt="Balanced diet infographic" className="w-full rounded-lg" />}
                   </div>
                 </div>
               ))
