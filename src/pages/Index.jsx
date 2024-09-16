@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Globe, BookOpen, Zap, Users, Laptop, Smartphone, MessageCircle, Send, ChevronDown } from 'lucide-react';
@@ -13,14 +13,10 @@ import {
 
 const Index = () => {
   const navigate = useNavigate();
-  const [expandedSector, setExpandedSector] = useState(null);
+  const [expandedSector, setExpandedSector] = React.useState(null);
 
-  const handleTranslateClick = () => {
-    navigate('/signup-login', { state: { redirectTo: '/translate' } });
-  };
-
-  const handleIconClick = (path) => {
-    navigate(path);
+  const handleLoginClick = () => {
+    navigate('/signup-login');
   };
 
   const toggleSector = (sector) => {
@@ -44,6 +40,14 @@ const Index = () => {
       title: "Business & Commerce",
       content: "Empowering SMEs and informal sector players with premium business education in local languages, reducing business failure rates."
     }
+  ];
+
+  const platforms = [
+    { name: "YouTube", icon: "FaYoutube" },
+    { name: "Udemy", icon: "SiUdemy" },
+    { name: "Coursera", icon: "SiCoursera" },
+    { name: "edX", icon: "SiEdx" },
+    { name: "LinkedIn Learning", icon: "FaLinkedin" }
   ];
 
   return (
@@ -91,9 +95,9 @@ const Index = () => {
           <Button variant="outline" className="bg-white text-black hover:bg-gray-100">
             <Link to="/partner">Partner with Us</Link>
           </Button>
-          <Link to="/signup-login">
-            <Button className="bg-[#FF6B00] text-white hover:bg-[#FF8C00] transition-all duration-300">Login</Button>
-          </Link>
+          <Button className="bg-[#FF6B00] text-white hover:bg-[#FF8C00] transition-all duration-300" onClick={handleLoginClick}>
+            Login
+          </Button>
         </nav>
       </header>
 
@@ -108,13 +112,13 @@ const Index = () => {
           <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
             LinguaLink AI provides real-time translation of educational content into local languages,
             empowering marginalized populations in emerging markets to access knowledge and quality education
-            in key sectors like technology, agriculture, health, and commerce.
+            from multiple learning platforms in key sectors like technology, agriculture, health, and commerce.
           </p>
           <Button 
-            onClick={handleTranslateClick}
+            onClick={handleLoginClick}
             className="mt-8 bg-[#FF6B00] text-white text-2xl font-extrabold py-6 px-12 rounded-lg transition-all duration-300 transform hover:scale-105 hover:bg-[#FF8C00] shadow-lg"
           >
-            TRANSLATE NOW
+            START LEARNING NOW
           </Button>
         </motion.section>
 
@@ -140,25 +144,19 @@ const Index = () => {
         </section>
 
         <section className="mb-16">
-          <h3 className="text-3xl font-bold mb-8 text-white text-center">Why choose LinguaLink AI</h3>
+          <h3 className="text-3xl font-bold mb-8 text-white text-center">Access Content from Multiple Platforms</h3>
           <p className="text-xl text-center text-gray-300 mb-8">
-            We enable users to access translated contents in their native languages and most familiar learning environments.
+            LinguaLink AI integrates with leading learning platforms to provide you with a wide range of translated content.
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
-            {[
-              { icon: <Laptop className="h-12 w-12 mb-4" />, text: "Translate via web", path: "/translate" },
-              { icon: <Smartphone className="h-12 w-12 mb-4" />, text: "Translate on mobile", path: "/translate" },
-              { icon: <MessageCircle className="h-12 w-12 mb-4" />, text: "Translate on WhatsApp", path: "/whatsapp" },
-              { icon: <Send className="h-12 w-12 mb-4" />, text: "Translate on Telegram", path: "/telegram" },
-              { icon: <BookOpen className="h-12 w-12 mb-4" />, text: "Translate via LMS", path: "/signup-login", state: { redirectTo: '/lms' } }
-            ].map(({ icon, text, path, state }, index) => (
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
+            {platforms.map((platform, index) => (
               <motion.div key={index} whileHover={{ scale: 1.1 }} className="w-full h-full">
                 <Button
                   className="w-full h-full flex flex-col items-center justify-center bg-[#003366] hover:bg-[#004080] text-white p-6 group"
-                  onClick={() => navigate(path, { state })}
+                  onClick={handleLoginClick}
                 >
-                  {React.cloneElement(icon, { className: `${icon.props.className} group-hover:text-[#FF6B00] transition-colors duration-300` })}
-                  <span>{text}</span>
+                  <span className="text-2xl mb-2">{platform.icon}</span>
+                  <span>{platform.name}</span>
                 </Button>
               </motion.div>
             ))}
