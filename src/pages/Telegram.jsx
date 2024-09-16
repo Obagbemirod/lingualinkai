@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Send, Apple, Carrot, Utensils, Egg, Milk } from 'lucide-react';
+import { Send, Droplet, Smile, AlertCircle } from 'lucide-react';
 import { motion } from "framer-motion";
+import { Link } from 'react-router-dom';
 
 const Telegram = () => {
   const [selectedLanguage, setSelectedLanguage] = useState(null);
@@ -12,60 +13,52 @@ const Telegram = () => {
   const languages = ["English", "French", "Swahili", "Arabic"];
   const healthContent = {
     English: [
-      { type: 'text', content: "Welcome to our health education program on Telegram. Today, we'll learn about the importance of a balanced diet." },
-      { type: 'text', content: "A balanced diet includes a variety of foods from all food groups: fruits, vegetables, grains, proteins, and dairy." },
-      { type: 'icon', content: <Apple className="w-8 h-8 text-red-500" /> },
-      { type: 'text', content: "Fruits and vegetables provide essential vitamins, minerals, and fiber. Aim for a colorful plate!" },
-      { type: 'icon', content: <Carrot className="w-8 h-8 text-orange-500" /> },
-      { type: 'text', content: "Whole grains offer energy and fiber. Choose brown rice, whole wheat bread, and oats over refined grains." },
-      { type: 'icon', content: <Utensils className="w-8 h-8 text-yellow-700" /> },
-      { type: 'text', content: "Proteins are crucial for building and repairing tissues. Include lean meats, fish, beans, or tofu in your meals." },
-      { type: 'icon', content: <Egg className="w-8 h-8 text-yellow-200" /> },
-      { type: 'text', content: "Dairy products are rich in calcium and vitamin D. If you're lactose intolerant, try fortified plant-based alternatives." },
-      { type: 'icon', content: <Milk className="w-8 h-8 text-blue-100" /> },
-      { type: 'text', content: "Remember, moderation is key. Enjoy a variety of foods and stay hydrated. A balanced diet leads to better health!" },
+      { type: 'text', content: "Hello! Welcome to our health education program. Let's learn about proper handwashing techniques." },
+      { type: 'text', content: "Step 1: Wet your hands with clean, running water (warm or cold), turn off the tap, and apply soap." },
+      { type: 'icon', content: <Droplet className="w-8 h-8 text-blue-500" /> },
+      { type: 'text', content: "Step 2: Lather your hands by rubbing them together with the soap. Be sure to lather the backs of your hands, between your fingers, and under your nails." },
+      { type: 'text', content: "Step 3: Scrub your hands for at least 20 seconds. Need a timer? Hum the 'Happy Birthday' song from beginning to end twice." },
+      { type: 'icon', content: <Smile className="w-8 h-8 text-yellow-500" /> },
+      { type: 'text', content: "Step 4: Rinse your hands well under clean, running water." },
+      { type: 'text', content: "Step 5: Dry your hands using a clean towel or air dry them." },
+      { type: 'icon', content: <AlertCircle className="w-8 h-8 text-green-500" /> },
+      { type: 'text', content: "Great job! You've learned the proper handwashing technique. This simple act can prevent many diseases. Stay healthy!" },
     ],
     French: [
-      { type: 'text', content: "Bienvenue dans notre programme d'éducation à la santé sur Telegram. Aujourd'hui, nous allons apprendre l'importance d'une alimentation équilibrée." },
-      { type: 'text', content: "Une alimentation équilibrée comprend une variété d'aliments de tous les groupes alimentaires : fruits, légumes, céréales, protéines et produits laitiers." },
-      { type: 'icon', content: <Apple className="w-8 h-8 text-red-500" /> },
-      { type: 'text', content: "Les fruits et légumes fournissent des vitamines, des minéraux et des fibres essentiels. Visez une assiette colorée !" },
-      { type: 'icon', content: <Carrot className="w-8 h-8 text-orange-500" /> },
-      { type: 'text', content: "Les céréales complètes offrent de l'énergie et des fibres. Choisissez le riz brun, le pain complet et l'avoine plutôt que les céréales raffinées." },
-      { type: 'icon', content: <Utensils className="w-8 h-8 text-yellow-700" /> },
-      { type: 'text', content: "Les protéines sont cruciales pour construire et réparer les tissus. Incluez des viandes maigres, du poisson, des haricots ou du tofu dans vos repas." },
-      { type: 'icon', content: <Egg className="w-8 h-8 text-yellow-200" /> },
-      { type: 'text', content: "Les produits laitiers sont riches en calcium et en vitamine D. Si vous êtes intolérant au lactose, essayez des alternatives végétales fortifiées." },
-      { type: 'icon', content: <Milk className="w-8 h-8 text-blue-100" /> },
-      { type: 'text', content: "N'oubliez pas, la modération est la clé. Profitez d'une variété d'aliments et restez hydraté. Une alimentation équilibrée conduit à une meilleure santé !" },
+      { type: 'text', content: "Bonjour ! Bienvenue dans notre programme d'éducation à la santé. Apprenons les techniques de lavage des mains." },
+      { type: 'text', content: "Étape 1 : Mouillez-vous les mains avec de l'eau propre (chaude ou froide), fermez le robinet et appliquez du savon." },
+      { type: 'icon', content: <Droplet className="w-8 h-8 text-blue-500" /> },
+      { type: 'text', content: "Étape 2 : Frottez-vous les mains en les frottant ensemble avec le savon. Assurez-vous de bien frotter le dos des mains, entre les doigts et sous les ongles." },
+      { type: 'text', content: "Étape 3 : Frottez-vous les mains pendant au moins 20 secondes. Besoin d'un minuteur ? Chantez 'Joyeux Anniversaire' deux fois." },
+      { type: 'icon', content: <Smile className="w-8 h-8 text-yellow-500" /> },
+      { type: 'text', content: "Étape 4 : Rincez-vous bien les mains à l'eau courante propre." },
+      { type: 'text', content: "Étape 5 : Séchez-vous les mains avec une serviette propre ou laissez-les sécher à l'air libre." },
+      { type: 'icon', content: <AlertCircle className="w-8 h-8 text-green-500" /> },
+      { type: 'text', content: "Excellent travail ! Vous avez appris la technique appropriée de lavage des mains. Ce simple geste peut prévenir de nombreuses maladies. Restez en bonne santé !" },
     ],
     Swahili: [
-      { type: 'text', content: "Karibu katika programu yetu ya elimu ya afya kwenye Telegram. Leo, tutajifunza umuhimu wa lishe yenye uwiano." },
-      { type: 'text', content: "Lishe yenye uwiano inajumuisha vyakula mbalimbali kutoka katika vikundi vyote vya chakula: matunda, mboga, nafaka, protini, na maziwa." },
-      { type: 'icon', content: <Apple className="w-8 h-8 text-red-500" /> },
-      { type: 'text', content: "Matunda na mboga hutoa vitamini muhimu, madini, na nyuzinyuzi. Lenga sahani yenye rangi nyingi!" },
-      { type: 'icon', content: <Carrot className="w-8 h-8 text-orange-500" /> },
-      { type: 'text', content: "Nafaka kamili hutoa nishati na nyuzinyuzi. Chagua mchele wa kahawia, mkate wa ngano kamili, na oats badala ya nafaka zilizosafishwa." },
-      { type: 'icon', content: <Utensils className="w-8 h-8 text-yellow-700" /> },
-      { type: 'text', content: "Protini ni muhimu kwa kujenga na kukarabati tishu. Jumuisha nyama nyembamba, samaki, maharagwe, au tofu katika milo yako." },
-      { type: 'icon', content: <Egg className="w-8 h-8 text-yellow-200" /> },
-      { type: 'text', content: "Bidhaa za maziwa ni tajiri kwa kalsiamu na vitamini D. Ikiwa huwezi kuvumilia laktosi, jaribu mbadala wa mimea iliyoimarishwa." },
-      { type: 'icon', content: <Milk className="w-8 h-8 text-blue-100" /> },
-      { type: 'text', content: "Kumbuka, kiasi ni muhimu. Furahia vyakula mbalimbali na unywe maji ya kutosha. Lishe yenye uwiano husababisha afya bora!" },
+      { type: 'text', content: "Hujambo! Karibu katika programu yetu ya elimu ya afya. Hebu tujifunze mbinu sahihi za kunawa mikono." },
+      { type: 'text', content: "Hatua ya 1: Lowesha mikono yako kwa maji safi yanayotiririka (ya joto au baridi), zima mfereji, na weka sabuni." },
+      { type: 'icon', content: <Droplet className="w-8 h-8 text-blue-500" /> },
+      { type: 'text', content: "Hatua ya 2: Paka sabuni mikono yako kwa kuyasugua pamoja. Hakikisha umepaka sabuni nyuma ya mikono yako, kati ya vidole, na chini ya kucha." },
+      { type: 'text', content: "Hatua ya 3: Sugua mikono yako kwa sekunde 20 au zaidi. Unahitaji kipima muda? Imba wimbo wa 'Hongera' mara mbili kutoka mwanzo hadi mwisho." },
+      { type: 'icon', content: <Smile className="w-8 h-8 text-yellow-500" /> },
+      { type: 'text', content: "Hatua ya 4: Suuza mikono yako vizuri chini ya maji safi yanayotiririka." },
+      { type: 'text', content: "Hatua ya 5: Kausha mikono yako kwa kutumia taulo safi au yaacha yakauke yenyewe." },
+      { type: 'icon', content: <AlertCircle className="w-8 h-8 text-green-500" /> },
+      { type: 'text', content: "Kazi nzuri! Umejifunza mbinu sahihi ya kunawa mikono. Kitendo hiki rahisi kinaweza kuzuia magonjwa mengi. Kaa na afya njema!" },
     ],
     Arabic: [
-      { type: 'text', content: "مرحبًا بك في برنامجنا التعليمي الصحي على تيليجرام. اليوم، سنتعلم عن أهمية النظام الغذائي المتوازن." },
-      { type: 'text', content: "يشمل النظام الغذائي المتوازن مجموعة متنوعة من الأطعمة من جميع المجموعات الغذائية: الفواكه والخضروات والحبوب والبروتينات ومنتجات الألبان." },
-      { type: 'icon', content: <Apple className="w-8 h-8 text-red-500" /> },
-      { type: 'text', content: "توفر الفواكه والخضروات الفيتامينات والمعادن والألياف الأساسية. اهدف إلى طبق ملون!" },
-      { type: 'icon', content: <Carrot className="w-8 h-8 text-orange-500" /> },
-      { type: 'text', content: "توفر الحبوب الكاملة الطاقة والألياف. اختر الأرز البني والخبز الأسمر والشوفان بدلاً من الحبوب المكررة." },
-      { type: 'icon', content: <Utensils className="w-8 h-8 text-yellow-700" /> },
-      { type: 'text', content: "البروتينات ضرورية لبناء الأنسجة وإصلاحها. قم بتضمين اللحوم الخالية من الدهون والأسماك والفاصوليا أو التوفو في وجباتك." },
-      { type: 'icon', content: <Egg className="w-8 h-8 text-yellow-200" /> },
-      { type: 'text', content: "منتجات الألبان غنية بالكالسيوم وفيتامين د. إذا كنت تعاني من عدم تحمل اللاكتوز، جرب البدائل النباتية المدعمة." },
-      { type: 'icon', content: <Milk className="w-8 h-8 text-blue-100" /> },
-      { type: 'text', content: "تذكر، الاعتدال هو المفتاح. استمتع بمجموعة متنوعة من الأطعمة وحافظ على ترطيب جسمك. النظام الغذائي المتوازن يؤدي إلى صحة أفضل!" },
+      { type: 'text', content: "مرحبًا! أهلاً بك في برنامجنا التعليمي الصحي. دعنا نتعلم تقنيات غسل اليدين الصحيحة." },
+      { type: 'text', content: "الخطوة 1: بلل يديك بالماء النظيف الجاري (الدافئ أو البارد)، أغلق الصنبور، وضع الصابون." },
+      { type: 'icon', content: <Droplet className="w-8 h-8 text-blue-500" /> },
+      { type: 'text', content: "الخطوة 2: قم بتصبين يديك عن طريق فركهما معًا بالصابون. تأكد من تصبين ظهر يديك، وبين أصابعك، وتحت أظافرك." },
+      { type: 'text', content: "الخطوة 3: افرك يديك لمدة 20 ثانية على الأقل. تحتاج إلى مؤقت؟ قم بترديد أغنية 'عيد ميلاد سعيد' من البداية إلى النهاية مرتين." },
+      { type: 'icon', content: <Smile className="w-8 h-8 text-yellow-500" /> },
+      { type: 'text', content: "الخطوة 4: اشطف يديك جيدًا تحت الماء النظيف الجاري." },
+      { type: 'text', content: "الخطوة 5: جفف يديك باستخدام منشفة نظيفة أو اتركهما ليجفا في الهواء." },
+      { type: 'icon', content: <AlertCircle className="w-8 h-8 text-green-500" /> },
+      { type: 'text', content: "عمل رائع! لقد تعلمت تقنية غسل اليدين الصحيحة. هذا الفعل البسيط يمكن أن يمنع العديد من الأمراض. حافظ على صحتك!" },
     ],
   };
 
@@ -86,6 +79,11 @@ const Telegram = () => {
     }
   }, [currentStep, selectedLanguage]);
 
+  const handleBack = () => {
+    setSelectedLanguage(null);
+    setCurrentStep(0);
+  };
+
   return (
     <motion.div 
       initial={{ opacity: 0 }}
@@ -93,6 +91,14 @@ const Telegram = () => {
       exit={{ opacity: 0 }}
       className="min-h-screen bg-[#F5F5F5] p-8"
     >
+      <div className="flex justify-between mb-4">
+        <Link to="/">
+          <Button variant="outline">Home</Button>
+        </Link>
+        {selectedLanguage && (
+          <Button variant="outline" onClick={handleBack}>Back</Button>
+        )}
+      </div>
       <Card className="max-w-md mx-auto bg-white shadow-xl">
         <CardHeader className="bg-[#0088CC] text-white">
           <CardTitle className="text-2xl font-bold flex items-center">

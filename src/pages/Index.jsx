@@ -131,6 +131,7 @@ const Index = () => {
               <Card key={index} className="bg-[#003366] text-white cursor-pointer" onClick={() => toggleSector(index)}>
                 <CardHeader>
                   <CardTitle className="text-xl flex justify-between items-center">
+                
                     {sector.title}
                     {expandedSector === index ? <ChevronDown className="h-4 w-4 transform rotate-180" /> : <ChevronDown className="h-4 w-4" />}
                   </CardTitle>

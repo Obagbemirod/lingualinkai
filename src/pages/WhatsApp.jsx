@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { MessageCircle, Droplet, Smile, AlertCircle } from 'lucide-react';
 import { motion } from "framer-motion";
+import { Link } from 'react-router-dom';
 
 const WhatsApp = () => {
   const [selectedLanguage, setSelectedLanguage] = useState(null);
@@ -78,6 +79,11 @@ const WhatsApp = () => {
     }
   }, [currentStep, selectedLanguage]);
 
+  const handleBack = () => {
+    setSelectedLanguage(null);
+    setCurrentStep(0);
+  };
+
   return (
     <motion.div 
       initial={{ opacity: 0 }}
@@ -85,6 +91,14 @@ const WhatsApp = () => {
       exit={{ opacity: 0 }}
       className="min-h-screen bg-[#ECE5DD] p-8"
     >
+      <div className="flex justify-between mb-4">
+        <Link to="/">
+          <Button variant="outline">Home</Button>
+        </Link>
+        {selectedLanguage && (
+          <Button variant="outline" onClick={handleBack}>Back</Button>
+        )}
+      </div>
       <Card className="max-w-md mx-auto bg-[#E4DDD5] shadow-xl">
         <CardHeader className="bg-[#075E54] text-white">
           <CardTitle className="text-2xl font-bold flex items-center">
