@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { MessageCircle, Droplet, Smile, Bacteria } from 'lucide-react';
+import { MessageCircle, Droplet, Smile, AlertCircle } from 'lucide-react';
 import { motion } from "framer-motion";
 
 const WhatsApp = () => {
@@ -22,7 +22,7 @@ const WhatsApp = () => {
       { type: 'text', content: "Step 4: Rinse your hands well under clean, running water." },
       { type: 'infographic', content: "https://example.com/handwashing-infographic.jpg" },
       { type: 'text', content: "Step 5: Dry your hands using a clean towel or air dry them." },
-      { type: 'icon', content: <Bacteria className="w-8 h-8 text-green-500" /> },
+      { type: 'icon', content: <AlertCircle className="w-8 h-8 text-green-500" /> },
       { type: 'text', content: "Great job! You've learned the proper handwashing technique. This simple act can prevent many diseases. Stay healthy!" },
     ],
     French: [
@@ -36,7 +36,7 @@ const WhatsApp = () => {
       { type: 'text', content: "Étape 4 : Rincez-vous bien les mains à l'eau courante propre." },
       { type: 'infographic', content: "https://example.com/handwashing-infographic.jpg" },
       { type: 'text', content: "Étape 5 : Séchez-vous les mains avec une serviette propre ou laissez-les sécher à l'air libre." },
-      { type: 'icon', content: <Bacteria className="w-8 h-8 text-green-500" /> },
+      { type: 'icon', content: <AlertCircle className="w-8 h-8 text-green-500" /> },
       { type: 'text', content: "Excellent travail ! Vous avez appris la technique appropriée de lavage des mains. Ce simple geste peut prévenir de nombreuses maladies. Restez en bonne santé !" },
     ],
     Swahili: [
@@ -50,7 +50,7 @@ const WhatsApp = () => {
       { type: 'text', content: "Hatua ya 4: Suuza mikono yako vizuri chini ya maji safi yanayotiririka." },
       { type: 'infographic', content: "https://example.com/handwashing-infographic.jpg" },
       { type: 'text', content: "Hatua ya 5: Kausha mikono yako kwa kutumia taulo safi au yaacha yakauke yenyewe." },
-      { type: 'icon', content: <Bacteria className="w-8 h-8 text-green-500" /> },
+      { type: 'icon', content: <AlertCircle className="w-8 h-8 text-green-500" /> },
       { type: 'text', content: "Kazi nzuri! Umejifunza mbinu sahihi ya kunawa mikono. Kitendo hiki rahisi kinaweza kuzuia magonjwa mengi. Kaa na afya njema!" },
     ],
     Arabic: [
@@ -64,7 +64,7 @@ const WhatsApp = () => {
       { type: 'text', content: "الخطوة 4: اشطف يديك جيدًا تحت الماء النظيف الجاري." },
       { type: 'infographic', content: "https://example.com/handwashing-infographic.jpg" },
       { type: 'text', content: "الخطوة 5: جفف يديك باستخدام منشفة نظيفة أو اتركهما ليجفا في الهواء." },
-      { type: 'icon', content: <Bacteria className="w-8 h-8 text-green-500" /> },
+      { type: 'icon', content: <AlertCircle className="w-8 h-8 text-green-500" /> },
       { type: 'text', content: "عمل رائع! لقد تعلمت تقنية غسل اليدين الصحيحة. هذا الفعل البسيط يمكن أن يمنع العديد من الأمراض. حافظ على صحتك!" },
     ],
   };
