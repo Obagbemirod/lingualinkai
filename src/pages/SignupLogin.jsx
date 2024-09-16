@@ -99,6 +99,7 @@ const SignupLogin = () => {
           </div>
         </CardContent>
       </Card>
+    
     </motion.div>
   );
 };
