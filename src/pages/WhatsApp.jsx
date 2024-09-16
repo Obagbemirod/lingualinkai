@@ -100,9 +100,11 @@ const WhatsApp = () => {
         <Button variant="outline" onClick={handleBack}>
           {selectedLanguage ? 'Back' : 'Home'}
         </Button>
-        <Link to="/">
-          <Button variant="outline">Home</Button>
-        </Link>
+        {selectedLanguage && (
+          <Link to="/">
+            <Button variant="outline">Home</Button>
+          </Link>
+        )}
       </div>
       <Card className="max-w-md mx-auto bg-[#E4DDD5] shadow-xl">
         <CardHeader className="bg-[#075E54] text-white">

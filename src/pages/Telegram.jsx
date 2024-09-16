@@ -100,9 +100,11 @@ const Telegram = () => {
         <Button variant="outline" onClick={handleBack}>
           {selectedLanguage ? 'Back' : 'Home'}
         </Button>
-        <Link to="/">
-          <Button variant="outline">Home</Button>
-        </Link>
+        {selectedLanguage && (
+          <Link to="/">
+            <Button variant="outline">Home</Button>
+          </Link>
+        )}
       </div>
       <Card className="max-w-md mx-auto bg-white shadow-xl">
         <CardHeader className="bg-[#0088CC] text-white">
