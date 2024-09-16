@@ -6,22 +6,26 @@ import { Label } from "@/components/ui/label";
 import { FaGoogle, FaFacebook, FaYoutube, FaLinkedin } from 'react-icons/fa';
 import { SiUdemy, SiCoursera, SiEdx } from 'react-icons/si';
 import { motion } from "framer-motion";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const SignupLogin = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const [isLogin, setIsLogin] = useState(true);
 
   const handleSignIn = (provider) => {
-    // In a real app, we would implement actual authentication here
-    console.log(`Signing in with ${provider}`);
-    navigate('/dashboard');
+    // In a real app, we would implement OAuth authentication here
+    console.log(`Authenticating with ${provider}`);
+    // After successful authentication, redirect to the dashboard or LMS
+    const redirectTo = location.state?.redirectTo || '/dashboard';
+    navigate(redirectTo);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     // In a real app, we would validate the email and password here
-    navigate('/dashboard');
+    const redirectTo = location.state?.redirectTo || '/dashboard';
+    navigate(redirectTo);
   };
 
   const toggleMode = () => {

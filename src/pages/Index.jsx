@@ -4,6 +4,8 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Globe, BookOpen, Zap, Users, Laptop, Smartphone, MessageCircle, Send, ChevronDown } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 import { motion } from "framer-motion";
+import { FaYoutube, FaLinkedin } from 'react-icons/fa';
+import { SiUdemy, SiCoursera, SiEdx } from 'react-icons/si';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -43,11 +45,11 @@ const Index = () => {
   ];
 
   const platforms = [
-    { name: "YouTube", icon: "FaYoutube" },
-    { name: "Udemy", icon: "SiUdemy" },
-    { name: "Coursera", icon: "SiCoursera" },
-    { name: "edX", icon: "SiEdx" },
-    { name: "LinkedIn Learning", icon: "FaLinkedin" }
+    { name: "YouTube", icon: <FaYoutube /> },
+    { name: "Udemy", icon: <SiUdemy /> },
+    { name: "Coursera", icon: <SiCoursera /> },
+    { name: "edX", icon: <SiEdx /> },
+    { name: "LinkedIn Learning", icon: <FaLinkedin /> }
   ];
 
   return (
@@ -155,7 +157,7 @@ const Index = () => {
                   className="w-full h-full flex flex-col items-center justify-center bg-[#003366] hover:bg-[#004080] text-white p-6 group"
                   onClick={handleLoginClick}
                 >
-                  <span className="text-2xl mb-2">{platform.icon}</span>
+                  {React.cloneElement(platform.icon, { className: "text-4xl mb-2" })}
                   <span>{platform.name}</span>
                 </Button>
               </motion.div>
