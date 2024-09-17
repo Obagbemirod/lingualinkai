@@ -11,53 +11,51 @@ const languages = ["English", "Hausa", "Yoruba", "Igbo", "Swahili", "Berber", "O
 const content = {
   Entrepreneurship: {
     English: [
-      { type: 'bot', content: "Welcome to our entrepreneurship course! Let's learn about starting a business. Press 1 to begin." },
-      { type: 'user', content: "1" },
-      { type: 'bot', content: "Great! Step 1: Identify your business idea. Type 'NEXT' when you're ready to proceed." },
-      { type: 'user', content: "NEXT" },
-      { type: 'bot', content: "Step 2: Conduct market research. Type 'CONTINUE' for the next step." },
-      { type: 'user', content: "CONTINUE" },
-      { type: 'bot', content: "Step 3: Create a business plan. Type 'FINISH' to complete the lesson." },
-      { type: 'user', content: "FINISH" },
+      { type: 'bot', content: "Welcome to our entrepreneurship course! Let's learn about starting a business." },
+      { type: 'bot', content: "Step 1: Identify your business idea." },
+      { type: 'bot', content: "Step 2: Conduct market research." },
+      { type: 'bot', content: "Step 3: Create a business plan." },
       { type: 'bot', content: "Congratulations on completing the entrepreneurship basics! Good luck with your business venture!" },
     ],
     Yoruba: [
-      { type: 'bot', content: "E kaabo si eko iṣowo wa! Ẹ jẹ ki a kọ ẹkọ nipa bibo iṣẹ bẹrẹ. Tẹ 1 lati bẹrẹ." },
-      { type: 'user', content: "1" },
-      { type: 'bot', content: "O dara! Igbesẹ 1: Ṣe idanimọ ero iṣowo rẹ. Tẹ 'TẸSIWAJU' nigbati o ba ṣetan lati tẹsiwaju." },
-      { type: 'user', content: "TẸSIWAJU" },
-      { type: 'bot', content: "Igbesẹ 2: Ṣe iwadii oja. Tẹ 'TESIWAJU' fun igbesẹ ti o tẹle." },
-      { type: 'user', content: "TESIWAJU" },
-      { type: 'bot', content: "Igbesẹ 3: Ṣẹda eto iṣowo. Tẹ 'PARI' lati pari ẹkọ naa." },
-      { type: 'user', content: "PARI" },
+      { type: 'bot', content: "E kaabo si eko iṣowo wa! Ẹ jẹ ki a kọ ẹkọ nipa bibo iṣẹ bẹrẹ." },
+      { type: 'bot', content: "Igbesẹ 1: Ṣe idanimọ ero iṣowo rẹ." },
+      { type: 'bot', content: "Igbesẹ 2: Ṣe iwadii oja." },
+      { type: 'bot', content: "Igbesẹ 3: Ṣẹda eto iṣowo." },
       { type: 'bot', content: "O ku oriire fun pipe awọn ipilẹ iṣowo! Orire fun iṣowo rẹ!" },
+    ],
+    Hausa: [
+      { type: 'bot', content: "Barka da zuwa ga darasin kasuwanci! Bari mu koya game da farawa da sana'a." },
+      { type: 'bot', content: "Matakin 1: Gano tunanin kasuwancin ku." },
+      { type: 'bot', content: "Matakin 2: Yi binciken kasuwa." },
+      { type: 'bot', content: "Matakin 3: Ƙirƙiri shirin kasuwanci." },
+      { type: 'bot', content: "Taya murna da kammala tushen kasuwanci! Nasara ga kasuwancin ku!" },
     ],
     // Add translations for other languages here
   },
   Health: {
     English: [
-      { type: 'bot', content: "Welcome to our health education program! Let's learn about proper handwashing. Press 1 to continue." },
-      { type: 'user', content: "1" },
-      { type: 'bot', content: "Great! Step 1: Wet your hands with clean water. Type 'NEXT' to proceed." },
-      { type: 'user', content: "NEXT" },
-      { type: 'bot', content: "Step 2: Apply soap and lather well. Type 'CONTINUE' for the next step." },
-      { type: 'user', content: "CONTINUE" },
-      { type: 'bot', content: "Step 3: Scrub hands for at least 20 seconds. Type 'FINISH' to complete the lesson." },
-      { type: 'user', content: "FINISH" },
+      { type: 'bot', content: "Welcome to our health education program! Let's learn about proper handwashing." },
+      { type: 'bot', content: "Step 1: Wet your hands with clean water." },
+      { type: 'bot', content: "Step 2: Apply soap and lather well." },
+      { type: 'bot', content: "Step 3: Scrub hands for at least 20 seconds." },
       { type: 'bot', content: "Excellent! Remember to wash your hands regularly to stay healthy." },
     ],
     Swahili: [
-      { type: 'bot', content: "Karibu katika programu yetu ya elimu ya afya! Tujifunze kuhusu kunawa mikono vizuri. Bonyeza 1 kuendelea." },
-      { type: 'user', content: "1" },
-      { type: 'bot', content: "Vizuri! Hatua ya 1: Lowesha mikono yako kwa maji safi. Andika 'ENDELEA' kuendelea." },
-      { type: 'user', content: "ENDELEA" },
-      { type: 'bot', content: "Hatua ya 2: Weka sabuni na piga povu vizuri. Andika 'ENDELEA' kwa hatua inayofuata." },
-      { type: 'user', content: "ENDELEA" },
-      { type: 'bot', content: "Hatua ya 3: Sugua mikono kwa sekunde 20 au zaidi. Andika 'MALIZA' kumaliza somo." },
-      { type: 'user', content: "MALIZA" },
+      { type: 'bot', content: "Karibu katika programu yetu ya elimu ya afya! Tujifunze kuhusu kunawa mikono vizuri." },
+      { type: 'bot', content: "Hatua ya 1: Lowesha mikono yako kwa maji safi." },
+      { type: 'bot', content: "Hatua ya 2: Weka sabuni na piga povu vizuri." },
+      { type: 'bot', content: "Hatua ya 3: Sugua mikono kwa sekunde 20 au zaidi." },
       { type: 'bot', content: "Vizuri sana! Kumbuka kunawa mikono mara kwa mara ili kudumisha afya." },
     ],
-    // Add translations for other languages and categories here
+    Igbo: [
+      { type: 'bot', content: "Nno na mmemme ọzụzụ ahụike anyị! Ka anyị mụta banyere ịsa aka nke ọma." },
+      { type: 'bot', content: "Nzọụkwụ 1: Mee ka aka gị dị mmiri site na mmiri dị ọcha." },
+      { type: 'bot', content: "Nzọụkwụ 2: Tinye ncha ma sachaa nke ọma." },
+      { type: 'bot', content: "Nzọụkwụ 3: Kpochaa aka ruo opekata mpe sekọnd 20." },
+      { type: 'bot', content: "Ọ dị mma! Cheta ịsa aka gị oge niile iji nọgide na ahụike." },
+    ],
+    // Add translations for other languages here
   },
   // Add content for Agribusiness, Technology, and Education categories
 };
@@ -66,7 +64,6 @@ const WhatsApp = () => {
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [selectedLanguage, setSelectedLanguage] = useState(null);
   const [currentStep, setCurrentStep] = useState(0);
-  const [userInput, setUserInput] = useState('');
   const chatRef = useRef(null);
   const navigate = useNavigate();
 
@@ -81,17 +78,15 @@ const WhatsApp = () => {
     setCurrentStep(0);
   };
 
-  const handleUserInput = (e) => {
-    e.preventDefault();
-    if (userInput.trim() !== '') {
-      const currentContent = content[selectedCategory][selectedLanguage];
-      const nextBotMessage = currentContent[currentStep + 1];
-      if (nextBotMessage && nextBotMessage.type === 'bot') {
-        setCurrentStep(prevStep => prevStep + 2);
-      }
-      setUserInput('');
+  useEffect(() => {
+    let timer;
+    if (selectedCategory && selectedLanguage && currentStep < content[selectedCategory][selectedLanguage].length) {
+      timer = setTimeout(() => {
+        setCurrentStep(prevStep => prevStep + 1);
+      }, 2000); // Adjust the delay as needed
     }
-  };
+    return () => clearTimeout(timer);
+  }, [selectedCategory, selectedLanguage, currentStep]);
 
   useEffect(() => {
     if (chatRef.current) {
@@ -155,7 +150,7 @@ const WhatsApp = () => {
                 </div>
               )}
               {selectedCategory && selectedLanguage && content[selectedCategory] && content[selectedCategory][selectedLanguage] && (
-                content[selectedCategory][selectedLanguage].slice(0, currentStep + 1).map((item, index) => (
+                content[selectedCategory][selectedLanguage].slice(0, currentStep).map((item, index) => (
                   <div key={index} className={`mb-2 ${item.type === 'user' ? 'text-right' : 'text-left'}`}>
                     <div className={`inline-block p-3 rounded-lg ${item.type === 'user' ? 'bg-[#DCF8C6]' : 'bg-white'}`}>
                       <p>{item.content}</p>
@@ -165,25 +160,6 @@ const WhatsApp = () => {
               )}
             </div>
           </div>
-          {selectedCategory && selectedLanguage && (
-            <form onSubmit={handleUserInput} className="p-4 bg-white">
-              <div className="flex">
-                <input
-                  type="text"
-                  value={userInput}
-                  onChange={(e) => setUserInput(e.target.value)}
-                  placeholder="Type your message..."
-                  className="flex-grow p-2 border rounded-l-md focus:outline-none focus:ring-2 focus:ring-[#128C7E]"
-                />
-                <button
-                  type="submit"
-                  className="bg-[#25D366] text-white p-2 rounded-r-md hover:bg-[#128C7E] focus:outline-none focus:ring-2 focus:ring-[#128C7E]"
-                >
-                  Send
-                </button>
-              </div>
-            </form>
-          )}
         </CardContent>
       </Card>
       <p className="text-sm text-gray-600 mt-4 text-center">
