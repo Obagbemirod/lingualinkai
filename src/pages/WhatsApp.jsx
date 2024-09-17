@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { MessageCircle, Smartphone, ChevronLeft } from 'lucide-react';
 import { motion } from "framer-motion";
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const categories = ["Entrepreneurship", "Health", "Agribusiness", "Technology", "Education"];
 const languages = ["English", "French", "Hausa", "Yoruba", "Igbo", "Swahili", "Berber", "Oromo", "Amharic", "Afrikaans"];
@@ -35,7 +35,16 @@ const WhatsApp = () => {
       { type: 'user', content: "END" },
       { type: 'bot', content: "Thank you for learning with us! Stay healthy!" },
     ],
-    // Add translations for other languages here
+    // Add placeholder content for other languages
+    French: [{ type: 'bot', content: "Contenu en français non disponible pour le moment." }],
+    Hausa: [{ type: 'bot', content: "Babu abinda aka rubuta a harshen Hausa a yanzu." }],
+    Yoruba: [{ type: 'bot', content: "Ko si akoonu ni ede Yoruba lowolowo." }],
+    Igbo: [{ type: 'bot', content: "O nweghị ọdịnaya na asụsụ Igbo ugbu a." }],
+    Swahili: [{ type: 'bot', content: "Hakuna maudhui kwa Kiswahili kwa sasa." }],
+    Berber: [{ type: 'bot', content: "Ur llin ara imaградn s tmaziɣt tura." }],
+    Oromo: [{ type: 'bot', content: "Amma Afaan Oromootiin barreeffamni hin jiru." }],
+    Amharic: [{ type: 'bot', content: "አሁን በአማርኛ ቋንቋ ይዘት የለም።" }],
+    Afrikaans: [{ type: 'bot', content: "Daar is tans geen inhoud in Afrikaans nie." }],
   };
 
   const handleCategorySelect = (category) => {
@@ -48,7 +57,7 @@ const WhatsApp = () => {
   };
 
   useEffect(() => {
-    if (currentStep > 0 && currentStep < healthContent[selectedLanguage].length) {
+    if (selectedLanguage && currentStep > 0 && healthContent[selectedLanguage] && currentStep < healthContent[selectedLanguage].length) {
       const timer = setTimeout(() => {
         setCurrentStep(prevStep => prevStep + 1);
         if (chatRef.current) {
@@ -114,7 +123,7 @@ const WhatsApp = () => {
                   </div>
                 </div>
               )}
-              {selectedLanguage && healthContent[selectedLanguage].slice(0, currentStep).map((item, index) => (
+              {selectedLanguage && healthContent[selectedLanguage] && healthContent[selectedLanguage].slice(0, currentStep).map((item, index) => (
                 <div key={index} className={`mb-2 ${item.type === 'user' ? 'text-right' : 'text-left'}`}>
                   <div className={`inline-block p-3 rounded-lg ${item.type === 'user' ? 'bg-[#DCF8C6]' : 'bg-white'}`}>
                     <p>{item.content}</p>
