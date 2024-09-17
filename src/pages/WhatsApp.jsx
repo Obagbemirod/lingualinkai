@@ -70,60 +70,7 @@ const content = {
     ],
     // Add translations for other languages here
   },
-  Health: {
-    English: [
-      { type: 'bot', content: "Welcome to our health education program! I'm the LinguaLink AI bot. Let's learn about proper handwashing techniques." },
-      { type: 'user', content: "Hello! I'm interested in learning about handwashing." },
-      { type: 'bot', content: "That's great! Proper handwashing is crucial for preventing the spread of diseases. Do you know when it's most important to wash your hands?" },
-      { type: 'user', content: "I think before eating and after using the bathroom, right?" },
-      { type: 'bot', content: "Exactly! Those are two critical times. Here's a complete list of when to wash your hands:\n1. Before, during, and after preparing food\n2. Before eating\n3. Before and after caring for someone who is sick\n4. After using the toilet\n5. After changing diapers or cleaning up a child\n6. After blowing your nose, coughing, or sneezing\n7. After touching an animal or animal waste\n8. After handling pet food or treats\n9. After touching garbage\nCan you think of any other times?" },
-      { type: 'user', content: "Maybe after handling money?" },
-      { type: 'bot', content: "That's a great addition! Handling money is indeed a good time to wash your hands as currency can carry many germs. Now, let's talk about the proper handwashing technique. Do you know how long you should wash your hands?" },
-      { type: 'user', content: "I've heard it should be about 20 seconds." },
-      { type: 'bot', content: "That's correct! The World Health Organization recommends washing your hands for at least 20 seconds. Here's the step-by-step process:\n1. Wet your hands with clean, running water\n2. Apply soap and lather well\n3. Rub your hands palm to palm\n4. Rub the back of each hand\n5. Interlace your fingers\n6. Rub the backs of your fingers\n7. Clean your thumbs\n8. Rub your fingertips in your palms\n9. Rinse well under running water\n10. Dry your hands with a clean towel or air dry\nWhich step do you think people often forget?" },
-      { type: 'user', content: "Maybe cleaning the thumbs? I don't usually pay attention to that." },
-      { type: 'bot', content: "Good observation! Many people do forget to clean their thumbs thoroughly. It's important to give each part of your hand attention. Now, let's talk about common mistakes in handwashing. Can you think of any?" },
-      { type: 'user', content: "Using too little soap maybe?" },
-      { type: 'bot', content: "That's a good one! Here are some common handwashing mistakes:\n1. Using too little soap\n2. Not washing for long enough\n3. Forgetting to wash between fingers\n4. Not drying hands properly\n5. Touching the faucet with clean hands\n6. Using hot water (warm is fine, hot can dry out skin)\nHow can we avoid touching the faucet with clean hands?" },
-      { type: 'user', content: "Maybe use a paper towel to turn off the faucet?" },
-      { type: 'bot', content: "Excellent suggestion! Using a paper towel to turn off the faucet is a great way to avoid recontaminating your hands. If paper towels aren't available, you can use your elbow if the faucet allows it. Now, let's talk about hand sanitizers. Do you know when it's appropriate to use hand sanitizer instead of washing with soap and water?" },
-      { type: 'user', content: "When there's no access to water and soap?" },
-      { type: 'bot', content: "That's right! Hand sanitizers are a good alternative when soap and water aren't available. However, they're not as effective as handwashing in all situations. Here's when to use hand sanitizer:\n1. When soap and water aren't available\n2. In healthcare settings\n3. When traveling\n4. In crowded public places\nRemember, hand sanitizer doesn't eliminate all types of germs and may not be as effective when hands are visibly dirty or greasy. What alcohol percentage should an effective hand sanitizer have?" },
-      { type: 'user', content: "Is it 60%?" },
-      { type: 'bot', content: "You're spot on! An effective hand sanitizer should contain at least 60% alcohol. Here are some tips for using hand sanitizer effectively:\n1. Apply enough to cover all surfaces of your hands\n2. Rub your hands together until they feel dry (about 20 seconds)\n3. Don't rinse or wipe off the hand sanitizer before it's dry\n4. Keep out of reach of young children and supervise their use\nDo you have any questions about handwashing or hand sanitizers?" },
-      { type: 'user', content: "No, I think I understand now. Thank you for all the information!" },
-      { type: 'bot', content: "You're welcome! I'm glad I could help. Remember, proper hand hygiene is one of the most effective ways to prevent the spread of infections. Keep practicing these techniques, and don't hesitate to come back if you have more questions about health or any other topic!" },
-      { type: 'user', content: "I will, thanks again!" },
-      { type: 'bot', content: "You're very welcome! Stay healthy, and remember that LinguaLink AI is always here to provide information on various topics in your preferred language. Take care!" },
-    ],
-    Swahili: [
-      { type: 'bot', content: "Karibu katika programu yetu ya elimu ya afya! Mimi ni roboti ya LinguaLink AI. Hebu tujifunze kuhusu mbinu sahihi za kunawa mikono." },
-      { type: 'user', content: "Hujambo! Nina nia ya kujifunza kuhusu kunawa mikono." },
-      { type: 'bot', content: "Ni vizuri sana! Kunawa mikono vizuri ni muhimu sana kwa kuzuia kuenea kwa magonjwa. Je, unajua ni wakati gani muhimu zaidi kunawa mikono?" },
-      { type: 'user', content: "Nadhani kabla ya kula na baada ya kutumia choo, sivyo?" },
-      { type: 'bot', content: "Sahihi kabisa! Hizo ni nyakati mbili muhimu. Hapa kuna orodha kamili ya wakati wa kunawa mikono:\n1. Kabla, wakati, na baada ya kuandaa chakula\n2. Kabla ya kula\n3. Kabla na baada ya kumhudumia mtu aliye mgonjwa\n4. Baada ya kutumia choo\n5. Baada ya kubadilisha nepi au kumsafisha mtoto\n6. Baada ya kupiga chafya, kukohoa, au kupiga pua\n7. Baada ya kugusa mnyama au kinyesi cha mnyama\n8. Baada ya kushughulikia chakula cha wanyama vipenzi\n9. Baada ya kugusa takataka\nJe, unaweza kufikiria nyakati zingine?" },
-      { type: 'user', content: "Labda baada ya kushika pesa?" },
-      { type: 'bot', content: "Hiyo ni nyongeza nzuri! Kushika pesa kweli ni wakati mzuri wa kunawa mikono kwani sarafu zinaweza kubeba vijidudu vingi. Sasa, hebu tuzungumzie mbinu sahihi ya kunawa mikono. Je, unajua unapaswa kunawa mikono kwa muda gani?" },
-      { type: 'user', content: "Nimesikia inapaswa kuwa karibu sekunde 20." },
-      { type: 'bot', content: "Hiyo ni sahihi! Shirika la Afya Duniani linapendekeza kunawa mikono kwa angalau sekunde 20. Hapa kuna mchakato wa hatua kwa hatua:\n1. Lowesha mikono yako kwa maji safi yanayotiririka\n2. Weka sabuni na piga povu vizuri\n3. Sugua mikono yako kutoka kwenye viganja\n4. Sugua nyuma ya kila mkono\n5. Ingiza vidole vyako\n6. Sugua nyuma ya vidole vyako\n7. Safisha vidole gumba\n8. Sugua ncha za vidole vyako kwenye viganja vyako\n9. Suuza vizuri chini ya maji yanayotiririka\n10. Kausha mikono yako kwa kitambaa safi au kausha kwa hewa\nNi hatua gani unafikiri watu mara nyingi husahau?" },
-      { type: 'user', content: "Labda kusafisha vidole gumba? Mimi kwa kawaida sitilii maanani hilo." },
-      { type: 'bot', content: "Uchunguzi mzuri! Watu wengi husahau kusafisha vidole gumba vyao kikamilifu. Ni muhimu kutilia maanani kila sehemu ya mkono wako. Sasa, hebu tuzungumzie makosa ya kawaida katika kunawa mikono. Je, unaweza kufikiria yoyote?" },
-      { type: 'user', content: "Kutumia sabuni kidogo sana labda?" },
-      { type: 'bot', content: "Hiyo ni nzuri! Haya ni baadhi ya makosa ya kawaida ya kunawa mikono:\n1. Kutumia sabuni kidogo sana\n2. Kutoosha kwa muda wa kutosha\n3. Kusahau kunawa kati ya vidole\n4. Kutokausha mikono vizuri\n5. Kugusa mfereji kwa mikono safi\n6. Kutumia maji ya moto (ya vuguvugu ni sawa, ya moto yanaweza kukausha ngozi)\nTunawezaje kuepuka kugusa mfereji kwa mikono safi?" },
-      { type: 'user', content: "Labda kutumia karatasi ya kukaushia kuzima mfereji?" },
-      { type: 'bot', content: "Pendekezo zuri sana! Kutumia karatasi ya kukaushia kuzima mfereji ni njia nzuri ya kuepuka kuchafua tena mikono yako. Ikiwa karatasi za kukaushia hazipatikani, unaweza kutumia kiwiko chako ikiwa mfereji unaruhusu. Sasa, hebu tuzungumzie vitakasa mikono. Je, unajua ni lini inafaa kutumia kitakasa mikono badala ya kunawa kwa sabuni na maji?" },
-      { type: 'user', content: "Wakati hakuna upatikanaji wa maji na sabuni?" },
-      { type: 'bot', content: "Hiyo ni sahihi! Vitakasa mikono ni mbadala mzuri wakati sabuni na maji havipatikani. Hata hivyo, havifanyi kazi vizuri kama kunawa mikono katika hali zote. Hapa ni wakati wa kutumia kitakasa mikono:\n1. Wakati sabuni na maji havipatikani\n2. Katika mazingira ya huduma ya afya\n3. Wakati wa kusafiri\n4. Katika maeneo ya umma yenye msongamano\nKumbuka, kitakasa mikono hakiondoi aina zote za vijidudu na kinaweza kutofanya kazi vizuri wakati mikono ni michafu au ina mafuta. Je, kitakasa mikono kinachofaa kinapaswa kuwa na asilimia gani ya pombe?" },
-      { type: 'user', content: "Je, ni 60%?" },
-      { type: 'bot', content: "Umepatia kabisa! Kitakasa mikono kinachofaa kinapaswa kuwa na angalau 60% ya pombe. Hapa kuna vidokezo vya kutumia kitakasa mikono kwa ufanisi:\n1. Weka kiasi cha kutosha kufunika sehemu zote za mikono yako\n2. Sugua mikono yako pamoja hadi ijisikie kuwa kavu (karibu sekunde 20)\n3. Usisuuze au kufuta kitakasa mikono kabla hakijakauka\n4. Weka mbali na watoto wadogo na usimamie matumizi yao\nJe, una maswali yoyote kuhusu kunawa mikono au vitakasa mikono?" },
-      { type: 'user', content: "Hapana, nafikiri nimeelewa sasa. Asante kwa taarifa zote!" },
-      { type: 'bot', content: "Karibu! Nina furaha kwamba nimeweza kusaidia. Kumbuka, usafi wa mikono unaofaa ni moja ya njia bora zaidi za kuzuia kuenea kwa maambukizi. Endelea kufanya mazoezi ya mbinu hizi, na usisite kurudi ikiwa una maswali zaidi kuhusu afya au mada nyingine yoyote!" },
-      { type: 'user', content: "Nitafanya hivyo, asante tena!" },
-      { type: 'bot', content: "Karibu sana! Kaa na afya njema, na kumbuka kwamba LinguaLink AI iko hapa daima kutoa taarifa juu ya mada mbalimbali katika lugha unayopendelea. Tunza afya yako!" },
-    ],
-    // Add translations for other languages and categories here
-  },
-  // Add content for Agribusiness, Technology, and Education categories
+  // Add content for Health, Agribusiness, Technology, and Education categories
 };
 
 const WhatsApp = () => {
@@ -146,10 +93,13 @@ const WhatsApp = () => {
 
   useEffect(() => {
     let timer;
-    if (selectedCategory && selectedLanguage && currentStep < content[selectedCategory][selectedLanguage].length) {
-      timer = setTimeout(() => {
-        setCurrentStep(prevStep => prevStep + 1);
-      }, 2000); // Adjust the delay as needed
+    if (selectedCategory && selectedLanguage && content[selectedCategory] && content[selectedCategory][selectedLanguage]) {
+      const currentContent = content[selectedCategory][selectedLanguage];
+      if (currentStep < currentContent.length) {
+        timer = setTimeout(() => {
+          setCurrentStep(prevStep => prevStep + 1);
+        }, 2000); // Adjust the delay as needed
+      }
     }
     return () => clearTimeout(timer);
   }, [selectedCategory, selectedLanguage, currentStep]);
